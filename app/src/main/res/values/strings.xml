@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">kotlin_cardgame</string>
+    <string name="닉네임">닉네임</string>
 </resources>
