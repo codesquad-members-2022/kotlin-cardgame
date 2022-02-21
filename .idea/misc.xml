@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nimok/CodeSquadAndroidClass/mission02_cardgame/kotlin-cardgame/app/src/main/res/drawable/ic_character_1.xml" value="0.1545" />
+        <entry key="..\:/Users/nimok/CodeSquadAndroidClass/mission02_cardgame/kotlin-cardgame/app/src/main/res/drawable/ic_character_2.xml" value="0.1545" />
+        <entry key="..\:/Users/nimok/CodeSquadAndroidClass/mission02_cardgame/kotlin-cardgame/app/src/main/res/drawable/ic_character_3.xml" value="0.1545" />
+        <entry key="..\:/Users/nimok/CodeSquadAndroidClass/mission02_cardgame/kotlin-cardgame/app/src/main/res/drawable/ic_character_4.xml" value="0.1545" />
         <entry key="..\:/Users/nimok/CodeSquadAndroidClass/mission02_cardgame/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
       </map>
     </option>
