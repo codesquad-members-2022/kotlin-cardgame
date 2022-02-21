@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">kotlin-cardgame</string>
+    <string name="hint_nickname">닉네임</string>
+    <string name="description_image_emoji">description_image_emoji</string>
+    <string name="description_main_image_emoji">description_main_image_emoji</string>
+    <string name="button_next">다음</string>
 </resources>
