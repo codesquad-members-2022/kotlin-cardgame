@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearly_out_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/linearly_out_card">
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/et_cadrgame_nickname"
@@ -16,16 +16,57 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="10dp"
         android:background="@color/cardview_shadow_start_color"
+        android:hint="닉네임"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:hint="닉네임"
         android:textSize="15sp" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <ImageButton
+            android:id="@+id/imgbtn_bigsmile_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_sentiment_very_satisfied_55" />
+        <ImageButton
+            android:id="@+id/imgbtn_smile_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_sentiment_satisfied_55" />
+        <ImageButton
+            android:id="@+id/imgbtn_sad_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_sentiment_dissatisfied_55" />
+        <ImageButton
+            android:id="@+id/imgbtn_bigsad_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_sentiment_very_dissatisfied_24"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_profile_card"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
         />
 </LinearLayout>
