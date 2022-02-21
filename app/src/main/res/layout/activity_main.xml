@@ -69,4 +69,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         />
+    <Button
+        android:id="@+id/btn_move_card"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="다음"
+        android:enabled="false"
+        android:background="@color/purple_200"
+        />
 </LinearLayout>
