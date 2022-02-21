@@ -18,35 +18,41 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/닉네임"/>
     </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
     >
         <ImageButton
+                android:id="@+id/first_btn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/ic_baseline_adb_24"
                 android:scaleType="fitXY"
-        />
+                tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
+                android:id="@+id/second_btn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/ic_baseline_airplanemode_active_24"
                 android:scaleType="fitXY"
-        />
+                tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
+                android:id="@+id/third_btn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/ic_baseline_beach_access_24"
                 android:scaleType="fitXY"
-        />
+                tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
+                android:id="@+id/fourth_btn"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
@@ -54,7 +60,23 @@
                 android:layout_marginRight="20dp"
                 android:src="@drawable/ic_outline_attribution_24"
                 android:scaleType="fitXY"
-        />
+                tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
+
+    <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            tools:srcCompat="@tools:sample/avatars"
+            android:src="@drawable/ic_outline_attribution_24"
+            android:layout_marginBottom="20dp"/>
+
+    <Button
+            android:id="@+id/btn_nextActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="25dp"
+            android:text="@string/다음"/>
 
 </LinearLayout>
