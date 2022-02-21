@@ -6,13 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/emotions_container_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/smile_image_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_mood_24" />
+
+        <ImageButton
+            android:id="@+id/neutral_image_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_sentiment_neutral_24" />
+
+
+        <ImageButton
+            android:id="@+id/dissatisfied_image_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_sentiment_very_dissatisfied_24" />
+
+
+        <ImageButton
+            android:id="@+id/bad_image_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_mood_bad_24" />
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>
