@@ -75,7 +75,8 @@
             android:background="#CDCDCD"
             android:src="@drawable/ic_character_1"
             android:scaleType="fitCenter"
-            android:onClick="selectCharacter"/>
+            android:onClick="selectCharacter"
+            android:contentDescription="@string/description_character_face_1"/>
 
         <View
             android:layout_width="0dp"
@@ -90,7 +91,8 @@
             android:background="#CDCDCD"
             android:src="@drawable/ic_character_2"
             android:scaleType="fitCenter"
-            android:onClick="selectCharacter"/>
+            android:onClick="selectCharacter"
+            android:contentDescription="@string/description_character_face_2"/>
 
         <View
             android:layout_width="0dp"
@@ -105,7 +107,8 @@
             android:background="#CDCDCD"
             android:src="@drawable/ic_character_3"
             android:scaleType="fitCenter"
-            android:onClick="selectCharacter"/>
+            android:onClick="selectCharacter"
+            android:contentDescription="@string/description_character_face_3"/>
 
         <View
             android:layout_width="0dp"
@@ -120,7 +123,8 @@
             android:background="#CDCDCD"
             android:src="@drawable/ic_character_4"
             android:scaleType="fitCenter"
-            android:onClick="selectCharacter"/>
+            android:onClick="selectCharacter"
+            android:contentDescription="@string/description_character_face_4"/>
 
         <View
             android:layout_width="0dp"

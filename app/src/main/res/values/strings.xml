@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">kotlin-cardgame</string>
+    <string name="description_character_face_1">캐릭터 표정 1</string>
+    <string name="description_character_face_2">캐릭터 표정 2</string>
+    <string name="description_character_face_3">캐릭터 표정 3</string>
+    <string name="description_character_face_4">캐릭터 표정 4</string>
 </resources>
