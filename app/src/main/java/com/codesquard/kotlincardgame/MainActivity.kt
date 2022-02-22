@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         firstBtn.setOnClickListener {
             characterImage.setImageDrawable(getDrawable(R.drawable.first))
             isBtnSelected = true
-            selectedBtn = firstBtn
+            selectedBtn = secondBtn
         }
         secondBtn.setOnClickListener {
             characterImage.setImageDrawable(getDrawable(R.drawable.second))
@@ -92,11 +92,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 nextActivityBtn.isEnabled = true
-                if ((p0?.contains("[A-Z|a-z]".toRegex())) == false)
-                    nextActivityBtn.isEnabled = false
+                if ((p0?.contains("[A-Z|a-z]".toRegex())) == false) nextActivityBtn.isEnabled = false
                 p0?.forEach {
-                    if (!it.isLetterOrDigit())
-                        nextActivityBtn.isEnabled = false
+                    if (!it.isLetterOrDigit()) nextActivityBtn.isEnabled = false
                 } ?: throw IllegalArgumentException("잘못된 값입니다")
                 nickname = p0.toString()
             }
