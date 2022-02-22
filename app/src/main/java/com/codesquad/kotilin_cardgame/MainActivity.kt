@@ -48,8 +48,6 @@ class MainActivity : AppCompatActivity() {
         addImageButtonListener(buttonSad, selectedImage,moveBtn)
         addImageButtonListener(buttonBigSad, selectedImage,moveBtn)
         addLinkToSub(moveBtn, editNickName, selectedImage)
-
-
     }
 
     fun addLinkToSub(moveBtn: Button, nickname: EditText, profileImage: ImageView) {
@@ -155,7 +153,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             if (event.action == EditorInfo.IME_ACTION_DONE) {
-                // 키보드 내리기
                 val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 inputMethodManager.hideSoftInputFromWindow(editNickName.windowToken, 0)
                 handled=true
