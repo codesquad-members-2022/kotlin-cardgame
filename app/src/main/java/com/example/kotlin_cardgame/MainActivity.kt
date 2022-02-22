@@ -1,7 +1,10 @@
 package com.example.kotlin_cardgame
 
 import android.app.ActionBar
+import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,14 +12,16 @@ import android.util.Log
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.widget.addTextChangedListener
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private var selectedEmotion: Emotion? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +32,20 @@ class MainActivity : AppCompatActivity() {
         disableImageButton()
 
         nicknameEditTextListening()
-
         emotionViewsClickListening()
+        nextButtonListening()
+    }
 
-
+    private fun nextButtonListening() {
+        binding.nextButton.setOnClickListener {
+            if (selectedEmotion == null) {
+                Snackbar.make(binding.rootLayout, "표정을 먼저 선택해주세요", Snackbar.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("emotion", selectedEmotion)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun disableImageButton() {
@@ -40,18 +55,23 @@ class MainActivity : AppCompatActivity() {
         binding.badImageButton.isEnabled = false
     }
 
-    private fun emotionViewsClickListening() {
+    private fun selectEmotion(emotion: Emotion?) {
+        selectedEmotion = emotion
 
-        binding.smileImageButton.setOnClickListener { binding.emotionImageView.setImageResource(R.drawable.baseline_mood_24) }
-        binding.neutralImageButton.setOnClickListener { binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_neutral_24) }
-        binding.dissatisfiedImageButton.setOnClickListener {
-            binding.emotionImageView.setImageResource(
-                R.drawable.baseline_sentiment_very_dissatisfied_24
-            )
-        }
-        binding.badImageButton.setOnClickListener { binding.emotionImageView.setImageResource(R.drawable.baseline_mood_bad_24) }
-
+        if (emotion == null) binding.emotionImageView.setImageBitmap(null)
+        else if (emotion == Emotion.SMILE) binding.emotionImageView.setImageResource(R.drawable.baseline_mood_24)
+        else if (emotion == Emotion.NEUTRAL) binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_neutral_24)
+        else if (emotion == Emotion.DISSATISFIED) binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_very_dissatisfied_24)
+        else if (emotion == Emotion.BAD) binding.emotionImageView.setImageResource(R.drawable.baseline_mood_bad_24)
     }
+
+    private fun emotionViewsClickListening() {
+        binding.smileImageButton.setOnClickListener { selectEmotion(Emotion.SMILE) }
+        binding.neutralImageButton.setOnClickListener { selectEmotion(Emotion.NEUTRAL) }
+        binding.dissatisfiedImageButton.setOnClickListener { selectEmotion(Emotion.DISSATISFIED) }
+        binding.badImageButton.setOnClickListener { selectEmotion(Emotion.BAD) }
+    }
+
 
     private fun nicknameEditTextListening() {
         binding.nicknameEditText.addTextChangedListener {
@@ -60,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             setEmotionButtonEnable(isClickable)
 
             // 이모션 클릭상태에서도 잘못된 글자 입력시 이미지 없애기
-            if (!isClickable) binding.emotionImageView.setImageBitmap(null)
+            if (!isClickable) selectEmotion(null)
         }
     }
 
@@ -80,7 +100,6 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setImageButtonSize() {
-
         val viewDrawingListener = object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 Log.d(TAG, binding.smileImageButton.width.toString())
