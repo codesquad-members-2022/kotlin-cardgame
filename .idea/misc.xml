@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.234375" />
         <entry key="app/src/main/res/drawable/icon_1.xml" value="0.215" />
         <entry key="app/src/main/res/drawable/select_ib_character_1.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/select_ib_character_2.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/select_ib_character_3.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/select_ib_character_4.xml" value="0.1085" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24698333740234377" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21583099365234373" />
         <entry key="app/src/main/res/layout/fragment_game.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/fragment_option.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/game_activity.xml" value="0.2078125" />

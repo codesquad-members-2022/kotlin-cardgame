@@ -1,15 +1,16 @@
 package com.example.kotlincardgame
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.kotlincardgame.databinding.ActivityMainBinding
-import java.lang.NullPointerException
+import androidx.core.view.forEach
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class GameFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +22,25 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_game, container, false)
-        val textView: TextView = view?.findViewById(R.id.text_nickname) ?: throw NullPointerException()
-        val nickname: EditText = activity?.findViewById(R.id.edit_text) ?: throw NullPointerException()
-        textView.text = nickname.text
-        val drawable: ImageView = activity?.findViewById(R.id.iv_character_info) ?: throw NullPointerException()
-        val imageView: ImageView = view?.findViewById(R.id.character) ?: throw NullPointerException()
-        imageView.setImageDrawable(drawable.drawable)
+        val nickname: EditText =
+            activity?.findViewById(R.id.edit_text) ?: throw NullPointerException()
+        val textView: TextView =
+            view?.findViewById(R.id.text_nickname) ?: throw NullPointerException()
+        val drawable: ImageView =
+            activity?.findViewById(R.id.iv_character_info) ?: throw NullPointerException()
+        val imageView: ImageView =
+            view?.findViewById(R.id.character) ?: throw NullPointerException()
+        val button: Button = view?.findViewById(R.id.btn_back)
+        val bottomNavigation: BottomNavigationView =
+            activity?.findViewById(R.id.bottom_navigation) ?: throw NullPointerException()
+        button.text = "이전"
+        button.setOnClickListener {
+            val fragmentManager = activity?.supportFragmentManager
+            fragmentManager?.beginTransaction()?.remove(this)?.commit();
+            fragmentManager?.popBackStack();
+            bottomNavigation.menu.forEach { it.isEnabled = false }
+        }
+        checkUser(nickname, textView, imageView, drawable)
         return view
     }
 

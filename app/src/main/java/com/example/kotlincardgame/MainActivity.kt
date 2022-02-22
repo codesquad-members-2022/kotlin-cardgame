@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.example.kotlincardgame.databinding.ActivityMainBinding
@@ -26,21 +27,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             checkNickname()
         }
         binding.btnNext.setOnClickListener(this)
-        binding.bottomNavigation.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.option -> {
-                    val fragment = OptionFragment()
-                    supportActionBar?.title = "게임 설정"
-                    replaceFragment(fragment)
-                }
-                else -> {
-                    val fragment = GameFragment()
-                    supportActionBar?.title = "캐릭터 선택"
-                    replaceFragment(fragment)
-                }
-            }
-            true
-        }
+        setFragment(GameFragment())
+        setFragment(OptionFragment())
+        binding.bottomNavigation.menu.forEach { it.isEnabled = false }
+        selectBottomNavigation()
     }
 
     override fun onClick(view: View) = when (view.id) {
@@ -60,12 +50,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
             vitalizeNextButton()
         }
-
         else -> {
             val fragment = GameFragment()
             supportActionBar?.title = "캐릭터 선택"
             replaceFragment(fragment)
-       }
+            binding.btnNext.visibility = View.GONE
+            binding.bottomNavigation.menu.forEach { it.isEnabled = true }
+        }
 
     }
 
@@ -85,16 +76,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun checkChooseCharacter() = binding.ivCharacterInfo.drawable != null
-    private fun vitalizeNextButton(){
-        if(checkChooseCharacter() && binding.editText.text.toString() != ""){
+
+    private fun vitalizeNextButton() {
+        if (checkChooseCharacter() && binding.editText.text.toString() != "") {
             binding.btnNext.isEnabled = true
             return
         }
         binding.btnNext.isEnabled = false
     }
-    private fun replaceFragment(fragment: Fragment){
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.view, fragment)
-        fragmentTransaction.commit()
+
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().add(R.id.view, fragment)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.view, fragment).commit()
+    }
+
+    private fun selectBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.option -> {
+                    val fragment = OptionFragment()
+                    supportActionBar?.title = "게임 설정"
+                    replaceFragment(fragment)
+                }
+                else -> {
+                    val fragment = GameFragment()
+                    supportActionBar?.title = "캐릭터 선택"
+                    replaceFragment(fragment)
+                }
+            }
+            true
+        }
     }
 }
