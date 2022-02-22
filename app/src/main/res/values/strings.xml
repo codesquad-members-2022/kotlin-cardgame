@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">cardgame</string>
+    <string name="btn1Description">버튼1</string>
+    <string name="btn2Description">버튼2</string>
+    <string name="btn3Description">버튼3</string>
+    <string name="btn4Description">버튼4</string>
+    <string name="nicknameDescription">닉네임 입력</string>
+    <string name="btnNextString">다음</string>
 </resources>
