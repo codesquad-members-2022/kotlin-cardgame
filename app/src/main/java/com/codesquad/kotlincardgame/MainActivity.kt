@@ -48,22 +48,22 @@ class MainActivity : AppCompatActivity() {
             when (checkId) {
                 R.id.radiobutton_emoji1 -> {
                     imageView.setImageResource(R.drawable.ic_happy_emoji_svgrepo_com)
-                    if(isValidation(nickname.text.toString()))
+                    if (isValidation(nickname.text.toString()))
                         button.isEnabled = true
                 }
                 R.id.radiobutton_emoji2 -> {
                     imageView.setImageResource(R.drawable.ic_happy_emoji_svgrepo_com__1_)
-                    if(isValidation(nickname.text.toString()))
+                    if (isValidation(nickname.text.toString()))
                         button.isEnabled = true
                 }
                 R.id.radiobutton_emoji3 -> {
                     imageView.setImageResource(R.drawable.ic_shocked_emoji_svgrepo_com)
-                    if(isValidation(nickname.text.toString()))
+                    if (isValidation(nickname.text.toString()))
                         button.isEnabled = true
                 }
                 R.id.radiobutton_emoji4 -> {
                     imageView.setImageResource(R.drawable.ic_surprised_emoji_svgrepo_com)
-                    if(isValidation(nickname.text.toString()))
+                    if (isValidation(nickname.text.toString()))
                         button.isEnabled = true
                 }
             }
@@ -75,7 +75,8 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(editable: Editable?) {
-                button.isEnabled = isValidation(editable.toString()) && radioGroup.checkedRadioButtonId != -1
+                button.isEnabled =
+                    isValidation(editable.toString()) && radioGroup.checkedRadioButtonId != -1
             }
         })
     }

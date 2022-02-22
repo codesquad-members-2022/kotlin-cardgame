@@ -6,4 +6,6 @@
     <string name="button_next">다음</string>
     <string name="help">도움말</string>
     <string name="description_game_information">description_game_information</string>
+    <string name="label_game_icon">게임</string>
+    <string name="label_setting_icon">설정</string>
 </resources>

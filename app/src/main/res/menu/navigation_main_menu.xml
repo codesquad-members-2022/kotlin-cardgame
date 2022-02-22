@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_game"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="@string/label_game_icon" />
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="@string/label_setting_icon" />
+</menu>

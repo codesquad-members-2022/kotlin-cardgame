@@ -1,31 +1,42 @@
 package com.codesquad.kotlincardgame
 
-import android.content.Intent
-import android.graphics.BitmapFactory
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val nickName = findViewById<TextView>(R.id.tv_nickname)
-        val imageView = findViewById<ImageView>(R.id.iv_emoji)
-        val button = findViewById<Button>(R.id.btn_help)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_main)
+        val gameFragment = GameFragment()
+        val settingFragment = SettingFragment()
 
-        val nickname = intent.getStringExtra("nickname")
-        val byteArray = intent.getByteArrayExtra("image")
-        val bitmap = byteArray?.let { BitmapFactory.decodeByteArray(byteArray, 0, it.size) }
+        val bundle = Bundle()
+        bundle.putByteArray("image", intent.getByteArrayExtra("image"))
+        bundle.putString("nickname", intent.getStringExtra("nickname"))
+        settingFragment.arguments = bundle
 
-        nickName.text = nickname
-        imageView.setImageBitmap(bitmap)
-        button.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://codesquad.kr/")))
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            changeFragment(item.itemId, gameFragment, settingFragment)
+            true
+        }
+    }
+
+    private fun changeFragment(
+        itemId: Int,
+        gameFragment: GameFragment,
+        settingFragment: SettingFragment
+    ) {
+        val transaction = supportFragmentManager.beginTransaction()
+        when (itemId) {
+            R.id.navigation_game -> {
+                transaction.replace(R.id.container_main, gameFragment).commit()
+            }
+            R.id.navigation_setting -> {
+                transaction.replace(R.id.container_main, settingFragment).commit()
+            }
         }
     }
 }
