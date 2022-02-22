@@ -2,4 +2,6 @@
     <string name="app_name">kotlin_cardgame</string>
     <string name="닉네임">닉네임</string>
     <string name="다음">다음</string>
+    <string name="게임">게임</string>
+    <string name="설정">설정</string>
 </resources>

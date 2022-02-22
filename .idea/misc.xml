@@ -5,17 +5,24 @@
       <map>
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/first.xml" value="0.1" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/first_btn.xml" value="0.1361111111111111" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/first_pressed.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/fourth.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/fourth_pressed.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_baseline_adb_24.xml" value="0.1361111111111111" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_game.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1361111111111111" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_menu_24dp.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_outline_airplanemode_active_24.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_outline_beach_access_24.xml" value="0.1361111111111111" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/ic_setting.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/second.xml" value="0.1361111111111111" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/second_pressed.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/third.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/third_pressed.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/activity_character.xml" value="0.171484375" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.18412698412698414" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/menu/appbar_menu.xml" value="0.289453125" />
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.289453125" />
       </map>
     </option>
   </component>

@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         firstBtn.setOnClickListener {
             characterImage.setImageDrawable(getDrawable(R.drawable.first))
             isBtnSelected = true
-            selectedBtn = secondBtn
+            selectedBtn = firstBtn
         }
         secondBtn.setOnClickListener {
             characterImage.setImageDrawable(getDrawable(R.drawable.second))
