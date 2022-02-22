@@ -1,5 +1,6 @@
 package com.codesquard.kotlincardgame
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,7 +9,8 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import androidx.core.graphics.drawable.toDrawable
+import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textfield.TextInputLayout.*
@@ -21,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var thirdBtn: ImageButton
     private lateinit var fourthBtn: ImageButton
     private lateinit var characterImage: ImageView
+    private lateinit var selectedBtn: ImageButton
+    var isBtnSelected = false
+    var nickname = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,35 +41,43 @@ class MainActivity : AppCompatActivity() {
         setNicknameEditText()
         checkNicknameText()
         clickBtnToShowImage()
+        clickBtnToMoveCharActivity()
     }
 
-    private fun setBtnNotSelected() {
-        firstBtn.isSelected = false
-        secondBtn.isSelected = false
-        thirdBtn.isSelected = false
-        fourthBtn.isSelected = false
+    private fun clickBtnToMoveCharActivity() {
+        nextActivityBtn.setOnClickListener {
+            if (isBtnSelected) {
+                val intent = Intent(this, CharacterActivity::class.java).apply {
+                    putExtra("character", selectedBtn.id)
+                    putExtra("nickname", nickname)
+                }
+                startActivity(intent)
+            } else {
+                Snackbar.make(it, "캐릭터를 선택하세요", LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun clickBtnToShowImage() {
         firstBtn.setOnClickListener {
-            setBtnNotSelected()
             characterImage.setImageDrawable(getDrawable(R.drawable.first))
-            firstBtn.isSelected = true
+            isBtnSelected = true
+            selectedBtn = firstBtn
         }
         secondBtn.setOnClickListener {
-            setBtnNotSelected()
             characterImage.setImageDrawable(getDrawable(R.drawable.second))
-            secondBtn.isSelected = true
+            isBtnSelected = true
+            selectedBtn = secondBtn
         }
         thirdBtn.setOnClickListener {
-            setBtnNotSelected()
             characterImage.setImageDrawable(getDrawable(R.drawable.third))
-            thirdBtn.isSelected = true
+            isBtnSelected = true
+            selectedBtn = thirdBtn
         }
         fourthBtn.setOnClickListener {
-            setBtnNotSelected()
             characterImage.setImageResource(R.drawable.fourth)
-            fourthBtn.isSelected = true
+            isBtnSelected = true
+            selectedBtn = fourthBtn
         }
     }
 
@@ -85,6 +98,7 @@ class MainActivity : AppCompatActivity() {
                 }?.forEach {
                     nextActivityBtn.isEnabled = false
                 } ?: throw IllegalArgumentException("잘못된 값입니다")
+                nickname = p0.toString()
             }
         })
     }
