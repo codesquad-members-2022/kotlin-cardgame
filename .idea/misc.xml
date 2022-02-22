@@ -3,12 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/bad_24dp.xml" value="0.249" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/baseline_mood_18.xml" value="0.196" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/baseline_mood_24.xml" value="0.196" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/baseline_mood_bad_24.xml" value="0.196" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/baseline_sentiment_neutral_24.xml" value="0.196" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/baseline_sentiment_very_dissatisfied_24.xml" value="0.196" />
-        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.14606741573033707" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/dissatisfied.xml" value="0.242" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/neutral_24dp.xml" value="0.242" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/smile_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/twotone_mood_24.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/twotone_mood_bad_24.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/twotone_sentiment_dissatisfied_24.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/drawable/twotone_sentiment_neutral_24.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/User/Desktop/CodeSquad/AndroidMission/kotlin-cardgame/app/src/main/res/layout/activity_second.xml" value="0.265625" />
       </map>
     </option>

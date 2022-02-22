@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setImageButtonSize()
+        setRadioButtonSize()
         disableImageButton()
 
         nicknameEditTextListening()
@@ -41,27 +41,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun disableImageButton() {
-        binding.smileImageButton.isEnabled = false
-        binding.neutralImageButton.isEnabled = false
-        binding.dissatisfiedImageButton.isEnabled = false
-        binding.badImageButton.isEnabled = false
+        binding.smileRadioButton.isEnabled = false
+        binding.neutralRadioButton.isEnabled = false
+        binding.dissatisfiedRadioButton.isEnabled = false
+        binding.badRadioButton.isEnabled = false
     }
 
     private fun changeEmotionImage(emotion: Emotion?) {
         selectedEmotion = emotion
 
-        if (emotion == null) binding.emotionImageView.setImageBitmap(null)
-        else if (emotion == Emotion.SMILE) binding.emotionImageView.setImageResource(R.drawable.baseline_mood_24)
-        else if (emotion == Emotion.NEUTRAL) binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_neutral_24)
-        else if (emotion == Emotion.DISSATISFIED) binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_very_dissatisfied_24)
-        else if (emotion == Emotion.BAD) binding.emotionImageView.setImageResource(R.drawable.baseline_mood_bad_24)
+        when (emotion) {
+            null -> binding.emotionImageView.setImageBitmap(null)
+            Emotion.SMILE -> binding.emotionImageView.setImageResource(R.drawable.baseline_mood_24)
+            Emotion.NEUTRAL -> binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_neutral_24)
+            Emotion.DISSATISFIED -> binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_very_dissatisfied_24)
+            Emotion.BAD -> binding.emotionImageView.setImageResource(R.drawable.baseline_mood_bad_24)
+        }
     }
 
     private fun emotionViewsClickListening() {
-        binding.smileImageButton.setOnClickListener { changeEmotionImage(Emotion.SMILE) }
-        binding.neutralImageButton.setOnClickListener { changeEmotionImage(Emotion.NEUTRAL) }
-        binding.dissatisfiedImageButton.setOnClickListener { changeEmotionImage(Emotion.DISSATISFIED) }
-        binding.badImageButton.setOnClickListener { changeEmotionImage(Emotion.BAD) }
+        binding.smileRadioButton.setOnClickListener { changeEmotionImage(Emotion.SMILE) }
+        binding.neutralRadioButton.setOnClickListener { changeEmotionImage(Emotion.NEUTRAL) }
+        binding.dissatisfiedRadioButton.setOnClickListener { changeEmotionImage(Emotion.DISSATISFIED) }
+        binding.badRadioButton.setOnClickListener { changeEmotionImage(Emotion.BAD) }
     }
 
 
@@ -91,24 +93,25 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun setImageButtonSize() {
+    private fun setRadioButtonSize() {
+        // 한개의 버튼만 수정해주어도 모두 바뀐다.
         val viewDrawingListener = object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                Log.d(TAG, binding.smileImageButton.width.toString())
-                binding.smileImageButton.layoutParams.height = binding.smileImageButton.width
-                binding.smileImageButton.requestLayout()
-                binding.smileImageButton.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                Log.d(TAG, binding.smileRadioButton.width.toString())
+                binding.smileRadioButton.layoutParams.height = binding.smileRadioButton.width
+                binding.smileRadioButton.requestLayout()
+                binding.smileRadioButton.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
         }
-        binding.smileImageButton.viewTreeObserver.addOnGlobalLayoutListener(viewDrawingListener)
+        binding.smileRadioButton.viewTreeObserver.addOnGlobalLayoutListener(viewDrawingListener)
     }
 
 
     private fun setEmotionButtonEnable(isClickable: Boolean) {
-        binding.smileImageButton.isEnabled = isClickable
-        binding.neutralImageButton.isEnabled = isClickable
-        binding.dissatisfiedImageButton.isEnabled = isClickable
-        binding.badImageButton.isEnabled = isClickable
+        binding.smileRadioButton.isEnabled = isClickable
+        binding.neutralRadioButton.isEnabled = isClickable
+        binding.dissatisfiedRadioButton.isEnabled = isClickable
+        binding.badRadioButton.isEnabled = isClickable
     }
 }
 
