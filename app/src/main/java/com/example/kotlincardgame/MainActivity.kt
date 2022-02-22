@@ -1,9 +1,12 @@
 package com.example.kotlincardgame
 
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import com.example.kotlincardgame.databinding.ActivityMainBinding
+import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -17,6 +20,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ibCharacter2.setOnClickListener(this)
         binding.ibCharacter3.setOnClickListener(this)
         binding.ibCharacter4.setOnClickListener(this)
+        binding.editText.doAfterTextChanged {
+            checkNickname()
+        }
     }
 
     override fun onClick(view: View) = when (view.id) {
@@ -32,6 +38,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         else -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
         }
-         
+
+    }
+
+    private fun checkNickname() {
+        binding.editText.filters = arrayOf(InputFilter { source, _, _, _, _, _ ->
+            val ps: Pattern =
+                Pattern.compile("^[a-zA-Z0-9\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55]+$")
+            if (source == "" || ps.matcher(source).matches()) {
+                return@InputFilter source
+            }
+            binding.editText.error = "영문, 숫자만 입력 가능합니다.(5글자 이하)"
+            ""
+        }, InputFilter.LengthFilter(5))
     }
 }
