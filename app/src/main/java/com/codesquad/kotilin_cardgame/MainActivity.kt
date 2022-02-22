@@ -4,15 +4,26 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.media.Image
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.text.InputFilter
 import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.annotation.RequiresApi
+import com.google.android.material.snackbar.Snackbar
+import java.io.ByteArrayOutputStream
 import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
@@ -35,43 +46,29 @@ class MainActivity : AppCompatActivity() {
         addImageButtonListener(buttonSmile, selectedImage,moveBtn)
         addImageButtonListener(buttonSad, selectedImage,moveBtn)
         addImageButtonListener(buttonBigSad, selectedImage,moveBtn)
-        addLinkToSub(moveBtn)
+        addLinkToSub(moveBtn, editNickName, selectedImage)
+
 
     }
 
-    fun addLinkToSub(moveBtn: Button) {
+    fun addLinkToSub(moveBtn: Button, nickname: EditText, profileImage: ImageView) {
         moveBtn.setOnClickListener {
             val intent = Intent(this, SubActivity::class.java)
+            val drawable = profileImage.drawable
+            val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight,Bitmap.Config.ARGB_8888)
+            val stream: ByteArrayOutputStream= ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            intent.putExtra("profileImage", stream.toByteArray())
+            intent.putExtra("nickname",nickname.text.toString())
             startActivity(intent)
         }
     }
 
     fun addImageButtonListener(button: ImageButton, selected: ImageView, link: Button) {
         button.setOnClickListener {
-            when (it.id) {
-                R.id.imgbtn_bigsmile_card -> {
-                    profileImageSelectedFlag = true
-                    if(nicknameSelectedFlag) link.isEnabled= true
-                    selected.setImageDrawable(resources.getDrawable(R.drawable.ic_baseline_sentiment_very_satisfied_55, null))
-                }
-                R.id.imgbtn_smile_card -> {
-                    profileImageSelectedFlag = true
-                    if(nicknameSelectedFlag) link.isEnabled= true
-                    selected.setImageDrawable(resources.getDrawable(R.drawable.ic_baseline_sentiment_satisfied_55, null)
-                    )
-                }
-                R.id.imgbtn_sad_card -> {
-                    profileImageSelectedFlag = true
-                    if(nicknameSelectedFlag) link.isEnabled= true
-                    selected.setImageDrawable(resources.getDrawable(R.drawable.ic_baseline_sentiment_dissatisfied_55, null))
-                }
-                R.id.imgbtn_bigsad_card -> {
-                    profileImageSelectedFlag = true
-                    if(nicknameSelectedFlag) link.isEnabled= true
-                    selected.setImageDrawable(resources.getDrawable(R.drawable.ic_baseline_sentiment_very_dissatisfied_24, null))
-                }
-                else -> selected.setBackgroundColor(Color.WHITE)
-            }
+            selected.setImageDrawable(button.drawable)
+            profileImageSelectedFlag = true
+            if(nicknameSelectedFlag) link.isEnabled= true
         }
     }
 
