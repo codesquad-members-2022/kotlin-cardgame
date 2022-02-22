@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.cardgame.databinding.ActivityMainBinding
 import java.util.regex.Pattern
 
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 
     private fun validation(nickname: String): Boolean {
         val pattern1 = Pattern.compile("^[a-zA-Z0-9]*\$")

@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic__6.xml" value="0.233" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic____.xml" value="0.233" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic_baseline_emoji_emotions_24.xml" value="0.294" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.294" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic_baseline_mood_bad_24.xml" value="0.294" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic_baseline_sentiment_dissatisfied_24.xml" value="0.294" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1375" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/second_activity.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable-mdpi/setting_on.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/game_off.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/game_on.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/game_selector.xml" value="0.119" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/home_selector.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/option_selector.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/setting_off.xml" value="0.204" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/drawable/setting_selector.xml" value="0.119" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.16394927536231885" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/fragment_game.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/fragment_setting.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/layout/second_activity.xml" value="0.2994791666666667" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/menu/navigation_bar.xml" value="0.2994791666666667" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Users/user/Desktop/android/kotlin-cardgame/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.204" />
       </map>
     </option>
   </component>
