@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ibCharacter3.setOnClickListener(this)
         binding.ibCharacter4.setOnClickListener(this)
         binding.editText.doAfterTextChanged {
+            vitalizeNextButton()
             checkNickname()
         }
     }
@@ -28,15 +29,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) = when (view.id) {
         R.id.ib_character_1 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_puka)
+            vitalizeNextButton()
         }
         R.id.ib_character_2 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_lion)
+            vitalizeNextButton()
         }
         R.id.ib_character_3 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_jeju)
+            vitalizeNextButton()
         }
         else -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
+            vitalizeNextButton()
         }
 
     }
@@ -45,6 +50,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.editText.filters = arrayOf(InputFilter { source, _, _, _, _, _ ->
             val ps: Pattern =
                 Pattern.compile("^[a-zA-Z0-9\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55]+$")
+            if (source.count() > 5) {
+                binding.editText.error = "5글자 이하만 입력 가능합니다."
+            }
             if (source == "" || ps.matcher(source).matches()) {
                 return@InputFilter source
             }
@@ -52,4 +60,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ""
         }, InputFilter.LengthFilter(5))
     }
+
+    private fun checkChooseCharacter() = binding.ivCharacterInfo.drawable != null
+    private fun vitalizeNextButton(){
+        if(checkChooseCharacter() && binding.editText.text.toString() != ""){
+            binding.btnNext.isEnabled = true
+            return
+        }
+        binding.btnNext.isEnabled = false
+    }
+
 }
