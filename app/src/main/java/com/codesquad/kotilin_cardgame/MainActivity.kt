@@ -22,6 +22,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import java.io.ByteArrayOutputStream
 import java.util.regex.Pattern
@@ -54,14 +55,23 @@ class MainActivity : AppCompatActivity() {
     fun addLinkToSub(moveBtn: Button, nickname: EditText, profileImage: ImageView) {
         moveBtn.setOnClickListener {
             val intent = Intent(this, SubActivity::class.java)
-            val drawable = profileImage.drawable
-            val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight,Bitmap.Config.ARGB_8888)
+            val bitmap = getBitmapFromVectorDrawable(this, profileImage.drawable)
             val stream: ByteArrayOutputStream= ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
             intent.putExtra("profileImage", stream.toByteArray())
             intent.putExtra("nickname",nickname.text.toString())
             startActivity(intent)
         }
+    }
+    fun getBitmapFromVectorDrawable(context: Context, drawable :Drawable): Bitmap {
+        val bitmap = Bitmap.createBitmap(
+            drawable!!.intrinsicWidth,
+            drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
     }
 
     fun addImageButtonListener(button: ImageButton, selected: ImageView, link: Button) {
