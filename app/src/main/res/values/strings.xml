@@ -2,4 +2,6 @@
     <string name="app_name">kotilin-cardgame</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_navigation_settingBtn_title">세팅</string>
+    <string name="bottom_navigation_gameBtn_title">게임</string>
 </resources>

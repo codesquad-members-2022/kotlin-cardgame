@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,28 +17,29 @@ class SubActivity : AppCompatActivity() {
         }
         val nickname = intent.getStringExtra("nickname")!!
         val toolbar = findViewById<Toolbar>(R.id.toolbar_cardgame)
-        val settingBtn = findViewById<Button>(R.id.btn_fragment_setting)
-        val gameBtn = findViewById<Button>(R.id.btn_fragment_game)
+        val settingFragment = SettingFragment()
+        settingFragment.setNickName(nickname)
+        settingFragment.setImage(profileImage)
         setSupportActionBar(toolbar)
+        val gameFragment= GameFragment()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
-        switchToSetting(settingBtn, nickname, profileImage)
-        switchToGame(gameBtn)
-    }
-
-    fun switchToSetting(settingBtn: Button, nickname: String, profileImage: Bitmap) {
-        settingBtn.setOnClickListener {
-            val settingFragment = SettingFragment()
-            settingFragment.setNickName(nickname)
-            settingFragment.setImage(profileImage)
-            supportFragmentManager.beginTransaction().replace(R.id.frame_sub, settingFragment)
-                .commit()
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation_sub)
+        bottomNavigation.setOnItemReselectedListener { item->
+            switchFragment(item.itemId, gameFragment,settingFragment)
         }
     }
-    fun switchToGame(gameBtn:Button){
-        gameBtn.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.frame_sub, GameFragment())
-                .commit()
+
+    fun switchFragment(itemId:Int, gameFragment: GameFragment, settingFragment: SettingFragment){
+        val transaction= supportFragmentManager.beginTransaction()
+        when(itemId){
+            R.id.page_setting-> {
+                transaction.replace(R.id.frame_sub, settingFragment).commit()
+            }
+            R.id.page_game->{
+                transaction.replace(R.id.frame_sub, gameFragment).commit()
+            }
+
         }
     }
 }
