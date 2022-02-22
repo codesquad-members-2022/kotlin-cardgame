@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         } else {
-            editNickNameLayout.error = "알파벳이 하나라도 포함되도록 다시입력해주세요"
+            editNickNameLayout.error = "알파벳이 하나라도 포함되야 합니다"
             link.isEnabled = false
         }
     }

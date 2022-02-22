@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_navigation_settingBtn_title">세팅</string>
     <string name="bottom_navigation_gameBtn_title">게임</string>
+    <string name="input_nickname_hint">Input NickName</string>
+    <string name="main_moveBtn_text">다음</string>
+    <string name="top_toolbar_title">게임 설정</string>
+    <string name="setting_tv_nickname_text">nickname</string>
+    <string name="setting_btn_help_text">도움말</string>
 </resources>
