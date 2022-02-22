@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:hint="@string/input_nickname_hint"
             android:inputType="text"
+            android:maxLength="5"
             android:textSize="15sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

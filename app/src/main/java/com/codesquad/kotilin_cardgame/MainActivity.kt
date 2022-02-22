@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
@@ -15,7 +14,6 @@ import androidx.core.graphics.drawable.toBitmap
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import java.io.ByteArrayOutputStream
-import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
     var nicknameSelectedFlag = false
@@ -29,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         val moveBtn = findViewById<Button>(R.id.btn_move_card)
         val radioGroup = findViewById<RadioGroup>(R.id.radiogroup_emoji)
         val selectedImage = findViewById<ImageView>(R.id.iv_profile_card)
-        addTextFilter(editNickNameLayout)
         addTextWatcher(editNickName, editNickNameLayout, moveBtn)
         addRadioEvent(radioGroup, selectedImage, moveBtn)
         val intent = Intent(this, SubActivity::class.java)
@@ -75,43 +72,34 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun addTextFilter(editNickNameLayout: TextInputLayout) {
-        val editNickName = editNickNameLayout.editText!!
-        editNickName.filters = arrayOf(
-            InputFilter { src, start, end, dst, dstart, dend ->
-                if (src.matches(Regex("^[a-zA-Z0-9]+$"))) {
-                    editNickNameLayout.error = null
-                    return@InputFilter src
-                }
-                //backspace 입력시 처리
-                if (src == "") {
-                    editNickNameLayout.error = null
-                    return@InputFilter src
-                }
-                editNickNameLayout.error = "영어와 숫자만 입력해주세요"
-                return@InputFilter ""
-            }, InputFilter.LengthFilter(5)
-        )
+    fun checkEmpty(nickName: Editable, editNickNameLayout: TextInputLayout): Boolean {
+        return if(nickName.isEmpty()) {
+            editNickNameLayout.error = "한글자 이상 입력하세요"
+            true
+        }
+        else {
+            false
+        }
     }
 
-    fun checkOnlyNumberType(
-        editNickName: EditText,
-        editNickNameLayout: TextInputLayout,
-        link: Button
-    ) {
-        val nickname = editNickName.text
-        val includeAlphaBet = Pattern.compile(".*[a-zA].*")
-        if (includeAlphaBet.matcher(nickname).matches()) {
-            editNickNameLayout.error = null
-            Snackbar.make(editNickName, "닉네임 입력 확인되었습니다", Snackbar.LENGTH_SHORT).show()
-            nicknameSelectedFlag = true
-            if (profileImageSelectedFlag) {
-                link.isEnabled = true
-            }
-
+    fun checkOnlyNumberType(nickName: Editable, editNickNameLayout: TextInputLayout, ): Boolean {
+        val pattern = Regex(".*[a-zA].*")
+        return if (nickName.matches(pattern)) {
+            true
         } else {
             editNickNameLayout.error = "알파벳이 하나라도 포함되야 합니다"
-            link.isEnabled = false
+            false
+        }
+    }
+
+    fun checkSpecial(nickname: Editable, editNickNameLayout: TextInputLayout): Boolean {
+        val pattern = Regex("^[a-zA-Z0-9]+$")
+        return if (nickname.matches(pattern)) {
+            editNickNameLayout.error = null
+            true
+        } else {
+            editNickNameLayout.error = "특수 문자는 허용되지 않습니다"
+            false
         }
     }
 
@@ -120,12 +108,14 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
-                if (editNickName.text.isEmpty()) {
-                    editNickNameLayout.error = "한글자 이상 입력하세요"
-                    link.isEnabled = false
-                } else {
+                val nickName = editNickName.text
+                if (!checkEmpty(nickName,editNickNameLayout)&&checkSpecial(nickName,editNickNameLayout)&&checkOnlyNumberType(nickName,editNickNameLayout)) {
                     editNickNameLayout.error = null
-                    checkOnlyNumberType(editNickName, editNickNameLayout, link)
+                    Snackbar.make(editNickNameLayout, "닉네임 입력 확인되었습니다", Snackbar.LENGTH_SHORT).show()
+                    nicknameSelectedFlag=true
+                    if(profileImageSelectedFlag){
+                        link.isEnabled=true
+                    }
                 }
             }
         }
