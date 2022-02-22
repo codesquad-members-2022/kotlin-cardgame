@@ -1,5 +1,7 @@
 package com.codesquad.kotlincardgame
 
+import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioGroup
+import androidx.core.graphics.drawable.toBitmap
+import java.io.ByteArrayOutputStream
 import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +26,16 @@ class MainActivity : AppCompatActivity() {
 
         editTextEvent(nickname, button, radioGroup)
         radioButtonEvent(radioGroup, imageView, nickname, button)
+        val intent = Intent(this@MainActivity, SecondActivity::class.java)
+        button.setOnClickListener {
+            intent.putExtra("nickname", nickname.text.toString())
+            val bitmap = imageView.drawable.toBitmap()
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            intent.putExtra("image", byteArray)
+            startActivity(intent)
+        }
     }
 
     private fun radioButtonEvent(
