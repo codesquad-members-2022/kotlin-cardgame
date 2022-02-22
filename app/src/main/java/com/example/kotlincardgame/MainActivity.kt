@@ -5,6 +5,7 @@ import android.text.InputFilter
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
 import com.example.kotlincardgame.databinding.ActivityMainBinding
 import java.util.regex.Pattern
 
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             vitalizeNextButton()
             checkNickname()
         }
+        binding.btnNext.setOnClickListener(this)
+        binding.bottomNavigation
     }
 
     override fun onClick(view: View) = when (view.id) {
@@ -39,9 +42,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_jeju)
             vitalizeNextButton()
         }
-        else -> {
+        R.id.ib_character_4 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
             vitalizeNextButton()
+        }
+        else -> {
+            val gameFragment = GameFragment()
+            supportActionBar?.title = "게임 설정"
+            replaceFragment(gameFragment)
         }
 
     }
@@ -69,5 +77,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         binding.btnNext.isEnabled = false
     }
-
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.view, fragment)
+        fragmentTransaction.commit()
+    }
 }
