@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/nickname_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emotions_container_layout"
+        android:layout_marginBottom="150dp"
+        android:hint="닉네임">
+
+    </EditText>
+
     <LinearLayout
         android:id="@+id/emotions_container_layout"
         android:layout_width="match_parent"
@@ -15,6 +25,7 @@
 
 
         <ImageButton
+            android:clickable="false"
             android:id="@+id/smile_image_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -23,6 +34,7 @@
             android:src="@drawable/baseline_mood_24" />
 
         <ImageButton
+            android:clickable="false"
             android:id="@+id/neutral_image_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -32,6 +44,7 @@
 
 
         <ImageButton
+            android:clickable="false"
             android:id="@+id/dissatisfied_image_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -41,6 +54,7 @@
 
 
         <ImageButton
+            android:clickable="false"
             android:id="@+id/bad_image_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
