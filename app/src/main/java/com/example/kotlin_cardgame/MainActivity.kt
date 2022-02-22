@@ -1,20 +1,22 @@
 package com.example.kotlin_cardgame
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.text.InputFilter
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
+import com.example.kotlin_cardgame.data.UserInfo
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
+import com.example.kotlin_cardgame.util.ImageUtil
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var prevSelectBtn: ImageButton? = null
+    private var curSelectBtn: ImageButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +30,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.editNickname.addTextChangedListener(verifyInputValue)
+
+        val intent = Intent(this, SubActivity::class.java)
+        binding.btnNext.setOnClickListener {
+            if (curSelectBtn == null) {
+                Toast.makeText(this, "캐릭터를 선택해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            intent.putExtra("userInfo", UserInfo(
+                ImageUtil.convertDrawableToByteArray(binding.ivSelectCharacter.drawable),
+                binding.editNickname.text.toString())
+            )
+            startActivity(intent)
+        }
     }
 
     private val verifyInputValue = object: TextWatcher {
@@ -48,8 +64,8 @@ class MainActivity : AppCompatActivity() {
 
     private val clickCharacterButtonListener = View.OnClickListener {
         (it as? ImageButton)?.apply {
-            prevSelectBtn?.apply { this.setBackgroundResource(R.color.character_btn_normal_bg) }
-            prevSelectBtn = this
+            curSelectBtn?.apply { this.setBackgroundResource(R.color.character_btn_normal_bg) }
+            curSelectBtn = this
             binding.ivSelectCharacter.setImageDrawable(this.drawable)
             this.setBackgroundResource(R.color.character_btn_select_bg)
         }
