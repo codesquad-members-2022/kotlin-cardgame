@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Junseok Seo/Documents/kotlin-cardgame/app/src/main/res/drawable/img_button2_state.xml" value="0.2215" />
+        <entry key="..\:/Users/Junseok Seo/Documents/kotlin-cardgame/app/src/main/res/drawable/img_button3_state.xml" value="0.2215" />
+        <entry key="..\:/Users/Junseok Seo/Documents/kotlin-cardgame/app/src/main/res/drawable/img_button4_state.xml" value="0.2215" />
+        <entry key="..\:/Users/Junseok Seo/Documents/kotlin-cardgame/app/src/main/res/drawable/img_button_state.xml" value="0.2215" />
         <entry key="..\:/Users/Junseok Seo/Documents/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.18768996960486323" />
       </map>
     </option>

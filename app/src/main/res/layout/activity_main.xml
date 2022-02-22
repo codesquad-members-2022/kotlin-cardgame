@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -13,6 +14,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
+        android:text="닉네임"
+        android:textSize="20sp"
         tools:text="입력 공간" />
 
     <LinearLayout
@@ -21,41 +24,49 @@
         android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/character_button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="버튼1"></Button>
+            android:focusableInTouchMode="true"
+            android:src="@drawable/img_button1_state"
+            android:text="버튼1"></ImageButton>
 
-        <Button
+        <ImageButton
             android:id="@+id/character_button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="버튼2"></Button>
+            android:focusableInTouchMode="true"
+            android:src="@drawable/img_button2_state"
+            android:text="버튼2"></ImageButton>
 
-        <Button
+        <ImageButton
             android:id="@+id/character_button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="버튼3"></Button>
+            android:focusableInTouchMode="true"
+            android:src="@drawable/img_button3_state"
+            android:text="버튼3"></ImageButton>
 
-        <Button
+        <ImageButton
             android:id="@+id/character_button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="버튼4"></Button>
+            android:focusableInTouchMode="true"
+            android:src="@drawable/img_button4_state"
+            android:text="버튼4"></ImageButton>
 
     </LinearLayout>
 
