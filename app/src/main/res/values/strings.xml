@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">kotlin-cardgame</string>
+    <string name="imagebutton1">imageButton1</string>
+    <string name="imagebutton2">imageButton2</string>
+    <string name="imagebutton3">imageButton3</string>
+    <string name="imagebutton4">imageButton4</string>
+    <string name="imageview">imageView</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
