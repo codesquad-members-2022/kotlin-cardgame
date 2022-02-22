@@ -91,12 +91,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                p0?.filter {
-                    nextActivityBtn.isEnabled = true
-                    if ((!(p0.contains("[A-Z|a-z]".toRegex())))) nextActivityBtn.isEnabled = false
-                    !(it.isLetterOrDigit())
-                }?.forEach {
+                nextActivityBtn.isEnabled = true
+                if ((p0?.contains("[A-Z|a-z]".toRegex())) == false)
                     nextActivityBtn.isEnabled = false
+                p0?.forEach {
+                    if (!it.isLetterOrDigit())
+                        nextActivityBtn.isEnabled = false
                 } ?: throw IllegalArgumentException("잘못된 값입니다")
                 nickname = p0.toString()
             }
