@@ -33,7 +33,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_baseline_adb_24"
+                android:src="@drawable/first"
                 android:scaleType="fitXY"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
@@ -42,7 +42,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_baseline_airplanemode_active_24"
+                android:src="@drawable/second"
                 android:scaleType="fitXY"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
@@ -51,7 +51,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_baseline_beach_access_24"
+                android:src="@drawable/third"
                 android:scaleType="fitXY"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
@@ -61,12 +61,13 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:src="@drawable/ic_outline_attribution_24"
+                android:src="@drawable/fourth"
                 android:scaleType="fitXY"
                 tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 
     <ImageView
+            android:id="@+id/character_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
