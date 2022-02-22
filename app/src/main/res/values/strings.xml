@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">kotlinCardGame</string>
+    <string name="next">다음</string>
+    <string name="character_1">캐릭터1</string>
+    <string name="character_info">선택</string>
+    <string name="character_2">캐릭터2</string>
+    <string name="character_3">캐릭터3</string>
+    <string name="character_4">캐릭터4</string>
+    <string name="nickname">닉네임</string>
+    <string name="text_label_1">게임</string>
+    <string name="text_label_2">설정</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
