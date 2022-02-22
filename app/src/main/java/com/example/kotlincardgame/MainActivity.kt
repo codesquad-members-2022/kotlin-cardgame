@@ -26,7 +26,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             checkNickname()
         }
         binding.btnNext.setOnClickListener(this)
-        binding.bottomNavigation
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.option -> {
+                    val fragment = OptionFragment()
+                    supportActionBar?.title = "게임 설정"
+                    replaceFragment(fragment)
+                }
+                else -> {
+                    val fragment = GameFragment()
+                    supportActionBar?.title = "캐릭터 선택"
+                    replaceFragment(fragment)
+                }
+            }
+            true
+        }
     }
 
     override fun onClick(view: View) = when (view.id) {
@@ -46,11 +60,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
             vitalizeNextButton()
         }
+
         else -> {
-            val gameFragment = GameFragment()
-            supportActionBar?.title = "게임 설정"
-            replaceFragment(gameFragment)
-        }
+            val fragment = GameFragment()
+            supportActionBar?.title = "캐릭터 선택"
+            replaceFragment(fragment)
+       }
 
     }
 
