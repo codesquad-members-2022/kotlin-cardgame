@@ -1,18 +1,10 @@
 package com.example.kotlin_cardgame
 
-import android.app.ActionBar
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
 import android.view.ViewTreeObserver
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.graphics.drawable.toBitmap
 import androidx.core.widget.addTextChangedListener
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -55,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         binding.badImageButton.isEnabled = false
     }
 
-    private fun selectEmotion(emotion: Emotion?) {
+    private fun changeEmotionImage(emotion: Emotion?) {
         selectedEmotion = emotion
 
         if (emotion == null) binding.emotionImageView.setImageBitmap(null)
@@ -66,10 +58,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun emotionViewsClickListening() {
-        binding.smileImageButton.setOnClickListener { selectEmotion(Emotion.SMILE) }
-        binding.neutralImageButton.setOnClickListener { selectEmotion(Emotion.NEUTRAL) }
-        binding.dissatisfiedImageButton.setOnClickListener { selectEmotion(Emotion.DISSATISFIED) }
-        binding.badImageButton.setOnClickListener { selectEmotion(Emotion.BAD) }
+        binding.smileImageButton.setOnClickListener { changeEmotionImage(Emotion.SMILE) }
+        binding.neutralImageButton.setOnClickListener { changeEmotionImage(Emotion.NEUTRAL) }
+        binding.dissatisfiedImageButton.setOnClickListener { changeEmotionImage(Emotion.DISSATISFIED) }
+        binding.badImageButton.setOnClickListener { changeEmotionImage(Emotion.BAD) }
     }
 
 
@@ -80,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             setEmotionButtonEnable(isClickable)
 
             // 이모션 클릭상태에서도 잘못된 글자 입력시 이미지 없애기
-            if (!isClickable) selectEmotion(null)
+            if (!isClickable) changeEmotionImage(null)
         }
     }
 
