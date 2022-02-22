@@ -36,7 +36,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:button="@null"
-            android:background="@drawable/ic_baseline_sentiment_very_satisfied_55" />
+            android:background="@drawable/select_bighappy" />
 
         <RadioButton
             android:id="@+id/rbtn_smile_card"
@@ -44,7 +44,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="15dp"
             android:button="@null"
-            android:background="@drawable/ic_baseline_sentiment_satisfied_55" />
+            android:background="@drawable/select_happy" />
 
         <RadioButton
             android:id="@+id/rbtn_sad_card"
@@ -52,7 +52,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="15dp"
             android:button="@null"
-            android:background="@drawable/ic_baseline_sentiment_dissatisfied_55" />
+            android:background="@drawable/select_sad" />
 
         <RadioButton
             android:id="@+id/rbtn_bigsad_card"
@@ -60,7 +60,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="15dp"
             android:button="@null"
-            android:background="@drawable/ic_baseline_sentiment_very_dissatisfied_24" />
+            android:background="@drawable/select_bigsad" />
     </RadioGroup>
 
     <ImageView

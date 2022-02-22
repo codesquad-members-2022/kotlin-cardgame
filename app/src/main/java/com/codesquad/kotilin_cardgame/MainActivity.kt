@@ -51,22 +51,22 @@ class MainActivity : AppCompatActivity() {
         radioGroup.setOnCheckedChangeListener { _, checkId ->
             when (checkId) {
                 R.id.rbtn_bigsmile_card -> {
-                    selectedImageView.setImageResource(R.drawable.ic_baseline_sentiment_very_satisfied_55)
+                    selectedImageView.setImageResource(R.drawable.profile_bighappy)
                     profileImageSelectedFlag = true
                     if (nicknameSelectedFlag) moveBtn.isEnabled = true
                 }
                 R.id.rbtn_smile_card -> {
-                    selectedImageView.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_55)
+                    selectedImageView.setImageResource(R.drawable.profile_happy)
                     profileImageSelectedFlag = true
                     if (nicknameSelectedFlag) moveBtn.isEnabled = true
                 }
                 R.id.rbtn_sad_card -> {
-                    selectedImageView.setImageResource(R.drawable.ic_baseline_sentiment_dissatisfied_55)
+                    selectedImageView.setImageResource(R.drawable.profile_sad)
                     profileImageSelectedFlag = true
                     if (nicknameSelectedFlag) moveBtn.isEnabled = true
                 }
                 R.id.rbtn_bigsad_card -> {
-                    selectedImageView.setImageResource(R.drawable.ic_baseline_sentiment_very_dissatisfied_24)
+                    selectedImageView.setImageResource(R.drawable.profile_bigsad)
                     profileImageSelectedFlag = true
                     if (nicknameSelectedFlag) moveBtn.isEnabled = true
                 }
@@ -126,7 +126,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     editNickNameLayout.error = null
                     checkOnlyNumberType(editNickName, editNickNameLayout, link)
-
                 }
             }
         }
