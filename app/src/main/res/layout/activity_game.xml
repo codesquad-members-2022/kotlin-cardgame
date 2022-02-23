@@ -24,6 +24,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/navigation_game_menu"/>
+        app:menu="@menu/navigation_game_menu"
+        app:itemIconTint="@drawable/selector_game_play_color"
+        app:itemTextColor="@drawable/selector_game_play_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

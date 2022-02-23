@@ -10,7 +10,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-       val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_game)
-        bottomNavigationView.itemIconTintList = null
+       /*val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_game)
+        bottomNavigationView.itemIconTintList = null*/
     }
 }
