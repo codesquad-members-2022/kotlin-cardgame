@@ -32,7 +32,6 @@ class CharacterFragment : Fragment() {
         clickBtnToWeb()
         charText.text = nickname
         charImageView.setImageBitmap(byteToBitmap())
-        setTextAndImage()
         return view
     }
 
@@ -53,9 +52,11 @@ class CharacterFragment : Fragment() {
         this.image = image
     }
 
+    /*
+    문제가 발생하는 코드
     private fun setTextAndImage() {
         val nickname: String? = arguments?.getString("name")
         val image: ByteArray? = arguments?.getByteArray("char")
-    }
+    }*/
 
 }

@@ -44,9 +44,10 @@ class CharacterActivity : AppCompatActivity() {
     private fun transferDataTofragment() {
         val nickname = intent.getStringExtra("nickname")!!
         val image = intent.getByteArrayExtra("character")!!
+        /* 문제가 발생하는 코드
         val bundle = Bundle()
         bundle.putString("name", nickname)
-        bundle.putByteArray("char", image)
+        bundle.putByteArray("char", image)*/
         charFragment.getTextAndImage(nickname,image)
     }
 }
