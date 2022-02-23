@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         (0..3).forEach {
             var i = it
             characterArray[i]!!.first.setOnClickListener {
-                if(!characterArray[i]!!.second) {
+                if(!characterArray[i]!!.second) { // 선택이 되지 않은 캐릭터를 선택하는 경우
                     changeCharacterBackground(i)
                     binding.ivCharacterSelected.setImageDrawable((characterArray[i]!!.first as ImageView).drawable)
                 }
