@@ -23,7 +23,6 @@ object Emotion {
             EmotionEnum.BAD -> context.resources.getDrawable(R.drawable.baseline_mood_bad_24)
                 .toBitmap()
         }
-
         return image
     }
 
