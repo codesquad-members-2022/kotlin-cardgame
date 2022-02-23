@@ -20,8 +20,13 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             app:navigationIcon="@drawable/ic_menu_24dp"
-            app:title="게임 설정"
-    />
+            app:title="게임 설정"/>
+
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/layout_fragment"
+            android:name="com.codesquard.kotlincardgame.GameFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 </RelativeLayout>
 

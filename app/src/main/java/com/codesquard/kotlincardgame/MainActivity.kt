@@ -1,6 +1,8 @@
 package com.codesquard.kotlincardgame
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,11 +11,13 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.core.graphics.drawable.toBitmap
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textfield.TextInputLayout.*
+import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
     private lateinit var nextActivityBtn: Button
@@ -44,12 +48,19 @@ class MainActivity : AppCompatActivity() {
         clickBtnToMoveCharActivity()
     }
 
+    private fun bitmapToByteArray(imageOfBtn: Drawable): ByteArray {
+        val image = imageOfBtn.toBitmap()
+        val stream = ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        return stream.toByteArray()
+    }
+
     private fun clickBtnToMoveCharActivity() {
         nextActivityBtn.setOnClickListener {
             if (isBtnSelected) {
                 val intent = Intent(this, CharacterActivity::class.java).apply {
-                    putExtra("character", selectedBtn.id)
-                    putExtra("nickname", nickname)
+                    putExtra("character", bitmapToByteArray(selectedBtn.drawable))
+                    putExtra("nickname", nicknameText.text.toString())
                 }
                 startActivity(intent)
             } else {

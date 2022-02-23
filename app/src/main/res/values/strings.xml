@@ -4,4 +4,6 @@
     <string name="다음">다음</string>
     <string name="게임">게임</string>
     <string name="설정">설정</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
