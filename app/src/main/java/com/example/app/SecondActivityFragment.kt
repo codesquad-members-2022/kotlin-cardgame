@@ -19,8 +19,6 @@ class SecondActivityFragment : AppCompatActivity() {
 
         val userData = intent.getSerializableExtra("Data")
 
-        gameID.text = userData.
-
         val navigation =
             findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.navigation_main)
 
