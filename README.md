@@ -82,7 +82,7 @@ OnDrawListener 를 채택하여 사용하였는데 draw 리스너는 리스너�
 - 포그라운드 앱의 Task 에서 stack 최상단에 있는 Activity 가 사용자에게 보여진다.
 - back 버튼이나 종료를 통해 stack 에서 pop 할 수 있다.
 
-### 동일한 Activity 에 대한 처리
+### 동일한 Activity 에 대한 처리   
 
 - Activity 는 호출 될때마다 기본적으로 새로운 객체를 생성함
 - 동일한 Activity에 대해 전에 있던 객체를 사용하기 위해서는 추가적 장치가 필요함

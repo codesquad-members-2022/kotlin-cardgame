@@ -22,6 +22,12 @@ class SecondActivity : AppCompatActivity() {
         Log.d(TAG, x.toString())
     }
 
+    private fun getUserData(): Bundle {
+        val bundle = Bundle()
+        bundle.putString("nickname", intent.extras?.get("nickname").toString())
+        bundle.putSerializable("emotion", intent.getSerializableExtra("emotion") as EmotionEnum)
+        return bundle
+    }
 
     private fun navigationClickListening() {
         // 최초 프레그먼트 설정
@@ -39,7 +45,7 @@ class SecondActivity : AppCompatActivity() {
                 }
                 R.id.page_2 -> {
                     val settingFragment = SettingFragment()
-                   
+                    settingFragment.arguments = getUserData()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, settingFragment).commit()
                     true
