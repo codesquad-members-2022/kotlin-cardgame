@@ -14,20 +14,22 @@ import androidx.fragment.app.Fragment
 
 
 class OptionFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_option, container, false)
+        return inflater.inflate(R.layout.fragment_option, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val nickname: EditText =
             activity?.findViewById(R.id.edit_text) ?: throw NullPointerException()
-        val textView: TextView = view?.findViewById(R.id.user_name) ?: throw NullPointerException()
+        val textView: TextView =
+            view?.findViewById(R.id.user_name)
         val imageView: ImageView =
-            view?.findViewById(R.id.user_character) ?: throw NullPointerException()
+            view?.findViewById(R.id.user_character)
         val drawable: ImageView =
             activity?.findViewById(R.id.iv_character_info) ?: throw NullPointerException()
         checkUser(nickname, textView, imageView, drawable)
@@ -37,6 +39,6 @@ class OptionFragment : Fragment() {
             val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://codesquad.kr/"))
             startActivity(urlIntent)
         }
-        return view
     }
+
 }

@@ -11,7 +11,9 @@ import com.example.kotlincardgame.databinding.ActivityMainBinding
 import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ibCharacter3.setOnClickListener(this)
         binding.ibCharacter4.setOnClickListener(this)
         binding.editText.doAfterTextChanged {
-            vitalizeNextButton()
+            stimulateNextButton()
             checkNickname()
         }
         binding.btnNext.setOnClickListener(this)
@@ -36,19 +38,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) = when (view.id) {
         R.id.ib_character_1 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_puka)
-            vitalizeNextButton()
+            stimulateNextButton()
         }
         R.id.ib_character_2 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_lion)
-            vitalizeNextButton()
+            stimulateNextButton()
         }
         R.id.ib_character_3 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_jeju)
-            vitalizeNextButton()
+            stimulateNextButton()
         }
         R.id.ib_character_4 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
-            vitalizeNextButton()
+            stimulateNextButton()
         }
         else -> {
             val fragment = GameFragment()
@@ -75,10 +77,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }, InputFilter.LengthFilter(5))
     }
 
-    private fun checkChooseCharacter() = binding.ivCharacterInfo.drawable != null
+    private fun checkCharacter() =
+        binding.ivCharacterInfo.drawable != null
 
-    private fun vitalizeNextButton() {
-        if (checkChooseCharacter() && binding.editText.text.toString() != "") {
+    private fun stimulateNextButton() {
+        if (checkCharacter() && binding.editText.text.toString() != "") {
             binding.btnNext.isEnabled = true
             return
         }
@@ -110,4 +113,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             true
         }
     }
+
 }
