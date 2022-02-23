@@ -1,18 +1,16 @@
 package com.codesquard.kotlincardgame
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import org.w3c.dom.Text
+import androidx.fragment.app.Fragment
 
 class CharacterFragment : Fragment() {
     private lateinit var charImageView: ImageView
@@ -20,8 +18,7 @@ class CharacterFragment : Fragment() {
     private lateinit var charBtn: Button
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_character, container, false)
         charImageView = view.findViewById(R.id.imageView_character)
@@ -43,7 +40,7 @@ class CharacterFragment : Fragment() {
     private fun setTextAndImage() {
         val nickname = arguments?.getString("name")
         val image = arguments?.getByteArray("char")
-        val bitmap = image.let { BitmapFactory.decodeByteArray(image, 0, it!!.size) }
+        val bitmap = image?.let { BitmapFactory.decodeByteArray(image, 0, it.size) }
         charText.text = nickname
         charImageView.setImageBitmap(bitmap)
     }

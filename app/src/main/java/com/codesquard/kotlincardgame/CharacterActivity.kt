@@ -1,11 +1,10 @@
 package com.codesquard.kotlincardgame
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.Toast
-import androidx.fragment.app.commit
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -17,20 +16,30 @@ class CharacterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character)
         bottomNav = findViewById(R.id.bottom_navigation)
-        clickBottomNav()
+        controlNavigation()
     }
 
-    private fun clickBottomNav() {
+    private fun controlNavigation() {
+        val bundle = transferDataTofragment()
+        val navController =
+            supportFragmentManager.findFragmentById(R.id.layout_fragment)?.findNavController()
+        navController?.let {
+            it.setGraph(R.navigation.character_navigation, bundle)
+            bottomNav.setupWithNavController(it)
+        }
+    }
+
+    /*private fun clickBottomNav() {
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.game -> {
+                R.id.navigation_game -> {
                     supportFragmentManager.commit {
                         replace(R.id.layout_fragment, GameFragment())
                         addToBackStack(null)
                     }
                     true
                 }
-                R.id.setting -> {
+                R.id.navigation_setting -> {
                     transferDataTofragment()
                     supportFragmentManager.commit {
                         replace(R.id.layout_fragment, charFragment)
@@ -41,14 +50,16 @@ class CharacterActivity : AppCompatActivity() {
                 else -> false
             }
         }
-    }
+    }*/
 
-    private fun transferDataTofragment() {
+    private fun transferDataTofragment(): Bundle {
         val nickname = intent.getStringExtra("nickname")
         val image = intent.getByteArrayExtra("character")
-        val bundle = Bundle()
+        /*
         bundle.putString("name", nickname)
         bundle.putByteArray("char", image)
-        charFragment.arguments = bundle
+        charFragment.arguments = bundle*/
+        return bundleOf("name" to nickname, "char" to image)
     }
+
 }
