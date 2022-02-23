@@ -1,6 +1,8 @@
 package com.codesquad_Han.kotlin_cardgame
 
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,7 +46,10 @@ class GameOptionFragment : Fragment() {
     }
 
     fun setBtn(){
-
+        binding.btnHelp.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://codesquad.kr/"))
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
