@@ -10,7 +10,7 @@ import com.codesquad_Han.kotlin_cardgame.databinding.FragmentGamePlayBinding
 
 class GamePlayFragment : Fragment() {
 
-    private var _binding : FragmentGamePlayBinding? = null
+    private var _binding: FragmentGamePlayBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(

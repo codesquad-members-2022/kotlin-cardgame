@@ -32,13 +32,15 @@
             android:layout_weight="0.8"
             android:hint="닉네임"
 
+
             android:theme="@style/EditTextStyleCustom1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_nickName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

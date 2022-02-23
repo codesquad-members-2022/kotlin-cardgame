@@ -9,7 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class GameActivity : AppCompatActivity() {
 
-    private val gameViewModel : GameViewModel by viewModels()
+    private val gameViewModel: GameViewModel by viewModels()
     private lateinit var bottomNavigationView: BottomNavigationView
     val gamePlayFragment = GamePlayFragment()
     val gameOptionFragment = GameOptionFragment()
@@ -23,20 +23,22 @@ class GameActivity : AppCompatActivity() {
         gameViewModel.characterNickname = characterData.nickName
         gameViewModel.characterImageByteArray = characterData.byteArray
 
-       bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_game)
-       //bottomNavigationView.itemIconTintList = null
+        bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_game)
+        //bottomNavigationView.itemIconTintList = null
 
         bottomNavigationView.selectedItemId = R.id.navigation_game_option
-        initBottomNavigationView(characterData)
+        initBottomNavigationView()
     }
 
-    fun initBottomNavigationView(characterData : CharacterData){
+    fun initBottomNavigationView() {
         bottomNavigationView.setOnItemSelectedListener { item ->
-            when(item.itemId){
+            when (item.itemId) {
                 R.id.navigation_game_play ->
-                    supportFragmentManager.beginTransaction().replace(R.id.container_game, gamePlayFragment).commit()
-                R.id.navigation_game_option ->{
-                    supportFragmentManager.beginTransaction().replace(R.id.container_game, gameOptionFragment).commit()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container_game, gamePlayFragment).commit()
+                R.id.navigation_game_option -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container_game, gameOptionFragment).commit()
                 }
             }
             true

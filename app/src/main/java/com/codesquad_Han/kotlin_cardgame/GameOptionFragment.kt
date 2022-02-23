@@ -15,10 +15,10 @@ import com.codesquad_Han.kotlin_cardgame.model.CharacterData
 
 class GameOptionFragment : Fragment() {
 
-    private val gameViewModel : GameViewModel by activityViewModels()
-    private var _binding : FragmentGameOptionBinding? = null
+    private val gameViewModel: GameViewModel by activityViewModels()
+    private var _binding: FragmentGameOptionBinding? = null
     private val binding get() = _binding!!
-    private lateinit var characterData : CharacterData
+    private lateinit var characterData: CharacterData
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,20 +32,23 @@ class GameOptionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("AppTest", "$this / ${gameViewModel.characterNickname}, ${gameViewModel.characterImageByteArray}")
+        Log.d(
+            "AppTest",
+            "$this / ${gameViewModel.characterNickname}, ${gameViewModel.characterImageByteArray}"
+        )
 
         setCharacterData()
         setBtn()
     }
 
-    fun setCharacterData(){
+    fun setCharacterData() {
         binding.tvNickName.text = gameViewModel.characterNickname
         val byteArray = gameViewModel.characterImageByteArray
         val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
         binding.ivCharacter.setImageBitmap(bitmap)
     }
 
-    fun setBtn(){
+    fun setBtn() {
         binding.btnHelp.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://codesquad.kr/"))
             startActivity(intent)

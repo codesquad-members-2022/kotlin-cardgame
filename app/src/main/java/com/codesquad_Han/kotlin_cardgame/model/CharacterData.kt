@@ -4,6 +4,6 @@ import android.graphics.drawable.Drawable
 import java.io.Serializable
 
 data class CharacterData(
-    val nickName : String,
-    val byteArray : ByteArray
+    val nickName: String,
+    val byteArray: ByteArray
 ) : Serializable

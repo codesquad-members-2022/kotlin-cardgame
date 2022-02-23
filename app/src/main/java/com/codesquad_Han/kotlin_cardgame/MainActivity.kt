@@ -105,10 +105,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkBtn() {
-        binding.btnNext.isEnabled = isAlphabetIncluded && isSpeciaCharactersNotIncluded && isCharacterSelected
+        binding.btnNext.isEnabled =
+            isAlphabetIncluded && isSpeciaCharactersNotIncluded && isCharacterSelected
     }
 
-    fun setBtn(){
+    fun setBtn() {
         binding.btnNext.setOnClickListener {
             val bitmap = binding.ivCharacterSelected.drawable.toBitmap()
             val stream = ByteArrayOutputStream()
