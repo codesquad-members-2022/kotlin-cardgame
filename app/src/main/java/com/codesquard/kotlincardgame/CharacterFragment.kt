@@ -1,6 +1,8 @@
 package com.codesquard.kotlincardgame
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,14 +30,20 @@ class CharacterFragment : Fragment() {
         charText = view.findViewById(R.id.text_character)
         charBtn = view.findViewById(R.id.button_character)
         clickBtnToWeb()
+        charText.text = nickname
+        charImageView.setImageBitmap(byteToBitmap())
         setTextAndImage()
         return view
+    }
+
+    private fun byteToBitmap(): Bitmap {
+        return image.let { BitmapFactory.decodeByteArray(image, 0, it.size) }
     }
 
     private fun clickBtnToWeb() {
         charBtn.setOnClickListener {
             val webpage: Uri = Uri.parse("https://codesquad.kr/")
-            val intent = Intent(Intent.ACTION_VIEW,webpage)
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
             startActivity(intent)
         }
     }
@@ -47,7 +55,7 @@ class CharacterFragment : Fragment() {
 
     private fun setTextAndImage() {
         val nickname: String? = arguments?.getString("name")
-        val image:ByteArray? = arguments?.getByteArray("char")
+        val image: ByteArray? = arguments?.getByteArray("char")
     }
 
 }

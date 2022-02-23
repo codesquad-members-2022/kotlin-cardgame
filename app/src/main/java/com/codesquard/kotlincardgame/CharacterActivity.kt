@@ -32,7 +32,7 @@ class CharacterActivity : AppCompatActivity() {
                 R.id.setting -> {
                     transferDataTofragment()
                     supportFragmentManager.commit {
-                        replace(R.id.layout_fragment, CharacterFragment())
+                        replace(R.id.layout_fragment, charFragment)
                     }
                     true
                 }
@@ -47,8 +47,6 @@ class CharacterActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString("name", nickname)
         bundle.putByteArray("char", image)
-        charFragment.arguments = bundle
-        charFragment.getTextAndImage(nickname, image)
+        charFragment.getTextAndImage(nickname,image)
     }
-
 }
