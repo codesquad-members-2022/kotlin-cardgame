@@ -1,6 +1,7 @@
 package com.example.app
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -11,7 +12,7 @@ import java.io.Serializable
 
 
 data class User(
-    val username: String, val Int: Int
+    val username: String, val Image: Int
 ) : Serializable
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val nextButton = findViewById<Button>(R.id.next_button)
         val image = findViewById<ImageView>(R.id.character_image_show)
         var inputString = ""
+        var userCharacter: Int = R.drawable.ic_person
 
         editTextButton.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -57,22 +59,26 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             image.setImageResource(R.drawable.ic_baseline_outlet_24)
+            userCharacter = R.drawable.ic_baseline_outlet_24
         }
 
         button2.setOnClickListener {
             image.setImageResource(R.drawable.ic_person)
+            userCharacter = R.drawable.ic_person
         }
 
         button3.setOnClickListener {
             image.setImageResource(R.drawable.ic_mom_and_son)
+            userCharacter = R.drawable.ic_mom_and_son
         }
 
         button4.setOnClickListener {
             image.setImageResource(R.drawable.ic_mouse)
+            userCharacter = R.drawable.ic_mouse
         }
 
         nextButton.setOnClickListener {
-            val user = User(inputString, R.drawable.ic_baseline_done_24)
+            val user = User(inputString, userCharacter)
             val intent = Intent(this, SecondActivityFragment::class.java)
             intent.putExtra("Data", user)
             startActivity(intent)
