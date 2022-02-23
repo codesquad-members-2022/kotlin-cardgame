@@ -1,5 +1,6 @@
 package com.example.kotlin_cardgame
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(0)
             }
+        }
+
+        binding.button.setOnClickListener {
+            val intent = Intent(this, SubActivity::class.java)
+            startActivity(intent)
         }
     }
 
