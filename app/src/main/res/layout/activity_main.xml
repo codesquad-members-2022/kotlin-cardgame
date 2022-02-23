@@ -25,6 +25,7 @@
             android:layout_weight="0.1" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
             style="@style/EditTextStyleCustom1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -162,7 +163,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="다음" />
+            android:text="다음"
+            android:enabled="false"/>
     </LinearLayout>
 
 
