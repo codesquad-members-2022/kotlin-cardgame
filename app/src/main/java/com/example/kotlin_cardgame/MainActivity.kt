@@ -1,10 +1,15 @@
 package com.example.kotlin_cardgame
 
 import android.content.Intent
+import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewTreeObserver
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.widget.addTextChangedListener
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -13,7 +18,7 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var selectedEmotion: Emotion? = null
+    private var selectedEmotionEnum: EmotionEnum? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun nextButtonListening() {
         binding.nextButton.setOnClickListener {
-            if (selectedEmotion == null) {
+            if (selectedEmotionEnum == null) {
                 Snackbar.make(binding.rootLayout, "표정을 먼저 선택해주세요", Snackbar.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, SecondActivity::class.java)
-                intent.putExtra("emotion", selectedEmotion)
+                intent.putExtra("emotion", selectedEmotionEnum)
+                intent.putExtra("nickname", binding.nicknameEditText.text)
                 startActivity(intent)
             }
         }
@@ -47,23 +53,17 @@ class MainActivity : AppCompatActivity() {
         binding.badRadioButton.isEnabled = false
     }
 
-    private fun changeEmotionImage(emotion: Emotion?) {
-        selectedEmotion = emotion
-
-        when (emotion) {
-            null -> binding.emotionImageView.setImageBitmap(null)
-            Emotion.SMILE -> binding.emotionImageView.setImageResource(R.drawable.baseline_mood_24)
-            Emotion.NEUTRAL -> binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_neutral_24)
-            Emotion.DISSATISFIED -> binding.emotionImageView.setImageResource(R.drawable.baseline_sentiment_very_dissatisfied_24)
-            Emotion.BAD -> binding.emotionImageView.setImageResource(R.drawable.baseline_mood_bad_24)
-        }
+    private fun changeEmotionImage(emotionEnum: EmotionEnum?) {
+        selectedEmotionEnum = emotionEnum
+        var image: Bitmap? = Emotion.getImage(this, emotionEnum)
+        binding.emotionImageView.setImageBitmap(image)
     }
 
     private fun emotionViewsClickListening() {
-        binding.smileRadioButton.setOnClickListener { changeEmotionImage(Emotion.SMILE) }
-        binding.neutralRadioButton.setOnClickListener { changeEmotionImage(Emotion.NEUTRAL) }
-        binding.dissatisfiedRadioButton.setOnClickListener { changeEmotionImage(Emotion.DISSATISFIED) }
-        binding.badRadioButton.setOnClickListener { changeEmotionImage(Emotion.BAD) }
+        binding.smileRadioButton.setOnClickListener { changeEmotionImage(EmotionEnum.SMILE) }
+        binding.neutralRadioButton.setOnClickListener { changeEmotionImage(EmotionEnum.NEUTRAL) }
+        binding.dissatisfiedRadioButton.setOnClickListener { changeEmotionImage(EmotionEnum.DISSATISFIED) }
+        binding.badRadioButton.setOnClickListener { changeEmotionImage(EmotionEnum.BAD) }
     }
 
 
