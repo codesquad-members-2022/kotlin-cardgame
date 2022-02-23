@@ -9,9 +9,11 @@
         <entry key="app/src/main/res/drawable/select_ib_character_2.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/select_ib_character_3.xml" value="0.1085" />
         <entry key="app/src/main/res/drawable/select_ib_character_4.xml" value="0.1085" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21583099365234373" />
-        <entry key="app/src/main/res/layout/fragment_game.xml" value="0.2078125" />
-        <entry key="app/src/main/res/layout/fragment_option.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16225433349609375" />
+        <entry key="app/src/main/res/layout/fragment_game.xml" value="0.20623016357421875" />
+        <entry key="app/src/main/res/layout/fragment_make_character.xml" value="0.14216308593750002" />
+        <entry key="app/src/main/res/layout/fragment_option.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/game_activity.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.2078125" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2078125" />

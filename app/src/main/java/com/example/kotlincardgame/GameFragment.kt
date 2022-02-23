@@ -1,47 +1,39 @@
 package com.example.kotlincardgame
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.forEach
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.findNavController
+import com.example.kotlincardgame.databinding.FragmentGameBinding
 
-class GameFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+class GameFragment : BaseFragment<FragmentGameBinding>(FragmentGameBinding::inflate) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_game, container, false)
-        val nickname: EditText =
-            activity?.findViewById(R.id.edit_text) ?: throw NullPointerException()
-        val textView: TextView =
-            view?.findViewById(R.id.text_nickname) ?: throw NullPointerException()
-        val drawable: ImageView =
-            activity?.findViewById(R.id.iv_character_info) ?: throw NullPointerException()
-        val imageView: ImageView =
-            view?.findViewById(R.id.character) ?: throw NullPointerException()
-        val button: Button = view?.findViewById(R.id.btn_back)
-        val bottomNavigation: BottomNavigationView =
-            activity?.findViewById(R.id.bottom_navigation) ?: throw NullPointerException()
-        button.text = "이전"
-        button.setOnClickListener {
-            val fragmentManager = activity?.supportFragmentManager
-            fragmentManager?.beginTransaction()?.remove(this)?.commit();
-            fragmentManager?.popBackStack();
-            bottomNavigation.menu.forEach { it.isEnabled = false }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val share = Login()
+        binding.btnBack.text = "이전"
+        binding.btnBack.setOnClickListener {
+//            val fragmentManager = activity?.supportFragmentManager
+//            fragmentManager?.beginTransaction()?.remove(this)?.commit()
+//            fragmentManager?.popBackStack()
+//            val nextButton = activity?.findViewById<Button>(R.id.btn_next)
+//            nextButton?.visibility = View.VISIBLE
+            val login = Login()
+            context?.let {
+                login.removeAllAttribute(requireContext())
+            }
+            view.findNavController().navigate(R.id.make_character)
         }
-        checkUser(nickname, textView, imageView, drawable)
-        return view
+        context?.let {
+            val context = requireContext()
+            checkUser(
+                view,
+                share.getAttribute(context,"userName"),
+                binding.textNickname,
+                binding.character,
+                share.getAttribute(context, "resName"),
+                context.packageName
+            )
+        }
     }
-
 }

@@ -1,21 +1,68 @@
 package com.example.kotlincardgame
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.view.View
-import android.widget.EditText
+import androidx.preference.PreferenceManager
 import android.widget.ImageView
 import android.widget.TextView
-import java.lang.NullPointerException
 
-fun checkUser(nickname: EditText, textView: TextView, imageView: ImageView, drawable: ImageView) = when(nickname.text.toString()){
-    "" -> guestUser(textView, imageView)
-    else -> memberUser(nickname, textView, imageView, drawable)
-}
-private fun guestUser(textView: TextView, imageView: ImageView){
+fun checkUser(
+    view: View,
+    nickname: String?,
+    textView: TextView,
+    imageView: ImageView,
+    resName: String?,
+    packName: String
+    ) = when (nickname) {
+        null -> guestUser(textView, imageView)
+        else -> memberUser(view, nickname, textView, imageView, resName, packName)
+    }
+
+private fun guestUser(textView: TextView, imageView: ImageView) {
     textView.text = "Guest"
     imageView.setBackgroundColor(Color.GRAY)
 }
-private fun memberUser(nickname: EditText, textView: TextView, imageView: ImageView, drawable: ImageView){
-    textView.text = nickname.text
-    imageView.setImageDrawable(drawable.drawable)
+
+private fun memberUser(
+    view: View,
+    nickname: String?,
+    textView: TextView,
+    imageView: ImageView,
+    resName: String?,
+    packName: String
+) {
+    textView.text = nickname
+    val resID: Int = view.resources.getIdentifier(resName, "drawable", packName)
+    imageView.setImageResource(resID)
+}
+
+class Login {
+    fun setAttribute(context: Context, key: String, value: String) {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.putString(key, value)
+        editor.commit()
+    }
+
+    fun getAttribute(context: Context, key: String): String? {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        return prefs.getString(key, null)
+    }
+
+    fun removeAttribute(context: Context, key: String) {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.remove(key)
+        editor.commit()
+    }
+
+    fun removeAllAttribute(context: Context) {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.clear()
+        editor.commit()
+    }
+
 }
