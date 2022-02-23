@@ -58,23 +58,23 @@ class MainActivity : AppCompatActivity() {
         })
 
         button1.setOnClickListener {
-            image.setImageResource(R.drawable.ic_baseline_outlet_24)
             userCharacter = R.drawable.ic_baseline_outlet_24
+            image.setImageResource(userCharacter)
         }
 
         button2.setOnClickListener {
-            image.setImageResource(R.drawable.ic_person)
             userCharacter = R.drawable.ic_person
+            image.setImageResource(userCharacter)
         }
 
         button3.setOnClickListener {
-            image.setImageResource(R.drawable.ic_mom_and_son)
             userCharacter = R.drawable.ic_mom_and_son
+            image.setImageResource(userCharacter)
         }
 
         button4.setOnClickListener {
-            image.setImageResource(R.drawable.ic_mouse)
             userCharacter = R.drawable.ic_mouse
+            image.setImageResource(userCharacter)
         }
 
         nextButton.setOnClickListener {

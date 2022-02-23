@@ -2,4 +2,9 @@
     <string name="app_name">card-game</string>
     <string name="game_setting">세팅</string>
     <string name="game_start">게임메뉴</string>
+    <string name="character_id">세팅화면</string>
+    <string name="game_settings">게임세팅</string>
+    <string name="game_">게임</string>
+    <string name="game">game</string>
+    <string name="game_start_new">게임</string>
 </resources>
