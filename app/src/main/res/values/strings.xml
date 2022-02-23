@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">card-game</string>
+    <string name="game_setting">세팅</string>
+    <string name="game_start">게임메뉴</string>
 </resources>

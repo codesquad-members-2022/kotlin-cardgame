@@ -28,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         val button4 = findViewById<ImageButton>(R.id.character_button4)
         val nextButton = findViewById<Button>(R.id.next_button)
         val image = findViewById<ImageView>(R.id.character_image_show)
-        var inputString: String = ""
-
+        var inputString = ""
 
         editTextButton.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -74,10 +73,9 @@ class MainActivity : AppCompatActivity() {
 
         nextButton.setOnClickListener {
             val user = User(inputString, R.drawable.ic_baseline_done_24)
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(this, SecondActivityFragment::class.java)
             intent.putExtra("Data", user)
             startActivity(intent)
         }
-
     }
 }
