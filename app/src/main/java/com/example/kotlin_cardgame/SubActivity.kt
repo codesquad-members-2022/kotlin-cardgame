@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.kotlin_cardgame.databinding.ActivitySubBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 class SubActivity : AppCompatActivity() {
 
@@ -21,23 +23,18 @@ class SubActivity : AppCompatActivity() {
         gameFragment = GameFragment()
         settingFragment = SettingFragment(intent)
 
-        binding.btnGame.setOnClickListener(click)
-        binding.btnSetting.setOnClickListener(click)
-    }
+        binding.bottomNavigation.setOnItemSelectedListener {
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            val tmpFragment: Fragment = when (it.itemId) {
+                R.id.page_game -> gameFragment
+                else -> settingFragment
+            }
 
-    private val click = View.OnClickListener {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        var tmpFragment: Fragment? = null
-        when (it?.id) {
-            R.id.btn_game -> tmpFragment = gameFragment
-            R.id.btn_setting -> tmpFragment = settingFragment
-        }
-
-        tmpFragment?.let {
             fragmentTransaction.replace(
                 R.id.fragment_container_view_tag,
                 tmpFragment
             ).commit()
+            return@setOnItemSelectedListener true
         }
     }
 }
