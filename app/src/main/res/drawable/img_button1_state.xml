@@ -4,4 +4,5 @@
     <item android:drawable="@drawable/ic_baseline_done_24" android:state_focused="true" />
 
     <item android:drawable="@drawable/ic_baseline_outlet_24" />
+
 </selector>
