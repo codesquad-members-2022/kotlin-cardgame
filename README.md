@@ -101,13 +101,36 @@
 1. 액티비티와 프래그먼트 간에 데이터를 전달하기 위해서는 `Bundle` 객체를 활용하면 된다.
 ```
 <데이터를 전달하는 액티비티>
- bundle.putString("name", nickname)
+val nickname = intent.getStringExtra("nickname")!!
+        val image = intent.getByteArrayExtra("character")!!
+        val bundle = Bundle()
+        bundle.putString("name", nickname)
         bundle.putByteArray("char", image)
         charFragment.arguments = bundle
+        
 <데이터를 받는 프래그먼트>
-        val nickname: String? = arguments?.getString("name")
-        val image:ByteArray? = arguments?.getByteArray("char")        
+        val nickname = arguments?.getString("name")
+        val image = arguments?.getByteArray("char")      
 ```
+
+> 이 부분에서 몇 시간을 헤맸는데, 자꾸 프래그먼트에서 값을 null로 받아들인 문제가 발생했었다. 그리고 마침내 해결했는데,
+```
+R.id.setting -> {
+    transferDataTofragment()
+    supportFragmentManager.commit {
+        replace(R.id.layout_fragment, CharFragment())
+    }
+true
+
+R.id.setting -> {
+    transferDataTofragment()
+    supportFragmentManager.commit {
+        replace(R.id.layout_fragment, charFragment)
+    }
+true
+```
+> 여기에서 `charFragment` 를 `CharFragment()`로 해서 자꾸 데이터가 null 값으로 수신했었음. 추측하기로는 객체가 만들어지기 전에 전달을 해서 값이 제대로 수신되지 않았던 것으로 보임
+
 
 #### 🔖 데이터 전달은..
 - 액티비티-액티비티, 액티비티-프래그먼트 간 데이터 전달은 모두 `키-값` 타입으로 전달된다.

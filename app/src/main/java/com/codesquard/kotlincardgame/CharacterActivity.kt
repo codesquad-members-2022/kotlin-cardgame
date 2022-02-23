@@ -11,7 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CharacterActivity : AppCompatActivity() {
     lateinit var bottomNav: BottomNavigationView
-    val charFragment = CharacterFragment()
+    private val charFragment = CharacterFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +44,9 @@ class CharacterActivity : AppCompatActivity() {
     private fun transferDataTofragment() {
         val nickname = intent.getStringExtra("nickname")!!
         val image = intent.getByteArrayExtra("character")!!
-        /* 문제가 발생하는 코드
         val bundle = Bundle()
         bundle.putString("name", nickname)
-        bundle.putByteArray("char", image)*/
-        charFragment.getTextAndImage(nickname,image)
+        bundle.putByteArray("char", image)
+        charFragment.arguments = bundle
     }
 }

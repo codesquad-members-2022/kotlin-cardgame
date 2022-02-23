@@ -18,8 +18,6 @@ class CharacterFragment : Fragment() {
     lateinit var charImageView: ImageView
     lateinit var charText: TextView
     lateinit var charBtn: Button
-    lateinit var nickname: String
-    lateinit var image: ByteArray
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +28,8 @@ class CharacterFragment : Fragment() {
         charText = view.findViewById(R.id.text_character)
         charBtn = view.findViewById(R.id.button_character)
         clickBtnToWeb()
-        charText.text = nickname
-        charImageView.setImageBitmap(byteToBitmap())
+        setTextAndImage()
         return view
-    }
-
-    private fun byteToBitmap(): Bitmap {
-        return image.let { BitmapFactory.decodeByteArray(image, 0, it.size) }
     }
 
     private fun clickBtnToWeb() {
@@ -47,16 +40,12 @@ class CharacterFragment : Fragment() {
         }
     }
 
-    fun getTextAndImage(nickname: String, image: ByteArray) {
-        this.nickname = nickname
-        this.image = image
-    }
-
-    /*
-    문제가 발생하는 코드
     private fun setTextAndImage() {
-        val nickname: String? = arguments?.getString("name")
-        val image: ByteArray? = arguments?.getByteArray("char")
-    }*/
+        val nickname = arguments?.getString("name")
+        val image = arguments?.getByteArray("char")
+        val bitmap = image.let { BitmapFactory.decodeByteArray(image, 0, it!!.size) }
+        charText.text = nickname
+        charImageView.setImageBitmap(bitmap)
+    }
 
 }
