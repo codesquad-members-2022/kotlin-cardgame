@@ -1,6 +1,7 @@
 package com.codesquad_Han.kotlin_cardgame
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +10,10 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import com.codesquad_Han.kotlin_cardgame.databinding.ActivityMainBinding
+import com.codesquad_Han.kotlin_cardgame.model.CharacterData
+import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +33,7 @@ class MainActivity : AppCompatActivity() {
         setCharacterArray()
         setCharacterClickListener()
         setEditText()
-
-        binding.btnNext.setOnClickListener {
-            startActivity(Intent(this, GameActivity::class.java))
-        }
+        setBtn()
     }
 
     fun setCharacterArray() {
@@ -105,5 +106,19 @@ class MainActivity : AppCompatActivity() {
 
     fun checkBtn() {
         binding.btnNext.isEnabled = isAlphabetIncluded && isSpeciaCharactersNotIncluded && isCharacterSelected
+    }
+
+    fun setBtn(){
+        binding.btnNext.setOnClickListener {
+            val bitmap = binding.ivCharacterSelected.drawable.toBitmap()
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+
+            val currentCharacterData = CharacterData(binding.etNickName.text.toString(), byteArray)
+            val intent = Intent(this, GameActivity::class.java)
+            intent.putExtra("characterData", currentCharacterData)
+            startActivity(intent)
+        }
     }
 }
