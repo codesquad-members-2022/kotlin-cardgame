@@ -39,7 +39,10 @@ class MainActivity : AppCompatActivity() {
         (0..3).forEach {
             var i = it
             characterArray[i]!!.first.setOnClickListener {
-                if(!characterArray[i]!!.second) changeCharacterBackground(i)
+                if(!characterArray[i]!!.second) {
+                    changeCharacterBackground(i)
+                    binding.ivCharacterSelected.setImageDrawable((characterArray[i]!!.first as ImageView).drawable)
+                }
             }
         }
     }
