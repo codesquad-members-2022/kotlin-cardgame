@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearly_out_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp">
+
+        <EditText
+            android:id="@+id/et_cadrgame_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/input_nickname_hint"
+            android:inputType="text"
+            android:maxLength="5"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radiogroup_emoji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbtn_bigsmile_card"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:button="@null"
+            android:background="@drawable/select_bighappy" />
+
+        <RadioButton
+            android:id="@+id/rbtn_smile_card"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
+            android:button="@null"
+            android:background="@drawable/select_happy" />
+
+        <RadioButton
+            android:id="@+id/rbtn_sad_card"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
+            android:button="@null"
+            android:background="@drawable/select_sad" />
+
+        <RadioButton
+            android:id="@+id/rbtn_bigsad_card"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
+            android:button="@null"
+            android:background="@drawable/select_bigsad" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/iv_profile_card"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/btn_move_card"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/main_moveBtn_text"
+        android:enabled="false"
+        android:background="@color/purple_200" />
+</LinearLayout>

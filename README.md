@@ -1,5 +1,9 @@
 # kotlin-cardgame
-- 요구사항 파악
-- 구현 완료 후 자신의 github 아이디에 해당하는 브랜치에 PR을 통해 코드 리뷰 요청
-- 코드 리뷰 피드백에 대한 개선 작업 후 push
-- 모든 피드백 완료 후 다음 단계를 도전하고 이전 과정 반복
+## Mission1 캐릭터 설정 만들기
+### Result 
+![result1](https://user-images.githubusercontent.com/58967292/155157672-e0e6a5c1-b303-4c01-a1c5-468b79df3545.gif)
+
+## Mission2 게임화면 구성하기
+### Result
+![result2](https://user-images.githubusercontent.com/58967292/155157682-63b3d61a-fbd4-41d7-9e58-5994a52fb1bd.gif)
+
