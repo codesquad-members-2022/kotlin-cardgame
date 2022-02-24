@@ -1,4 +1,4 @@
-package com.example.kotlin_cardgame
+package com.example.kotlin_cardgame.fragment
 
 import android.content.Intent
 import android.net.Uri

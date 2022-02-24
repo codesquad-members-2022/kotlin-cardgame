@@ -1,12 +1,11 @@
 package com.example.kotlin_cardgame
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.kotlin_cardgame.databinding.ActivitySubBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
+import com.example.kotlin_cardgame.fragment.GameFragment
+import com.example.kotlin_cardgame.fragment.SettingFragment
 
 class SubActivity : AppCompatActivity() {
 

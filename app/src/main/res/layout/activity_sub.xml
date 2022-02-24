@@ -17,7 +17,7 @@
             android:id="@+id/fragment_game"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.example.kotlin_cardgame.GameFragment"/>
+            android:name="com.example.kotlin_cardgame.fragment.GameFragment"/>
 
     </FrameLayout>
 

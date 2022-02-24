@@ -1,10 +1,11 @@
-package com.example.kotlin_cardgame
+package com.example.kotlin_cardgame.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.kotlin_cardgame.R
 
 class GameFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
