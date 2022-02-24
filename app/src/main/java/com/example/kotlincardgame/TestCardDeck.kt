@@ -28,7 +28,10 @@ class TestCardDeck(_count: Int) : Deck {
     }
 
     override fun removeOne(): Card {
-        TODO("Not yet implemented")
+        nowCount--
+        val card = deck[nowCount]
+        deck.removeAt(nowCount)
+        return card
     }
 
     override fun reset() {
