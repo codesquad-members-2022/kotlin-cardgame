@@ -34,6 +34,40 @@
 - 캐릭터는 `ImageButton`를 활용함
 - 각 이미지를 vector asset 추가를 통해 가져옴
 
+#### 🔖 Image Button VS Button
+- 이미지 버튼은 `이미지 뷰`를 상속받음. 버튼은 `텍스트뷰`를 상속받음
+- 그래서 이미지 버튼은 눌러도 자동으로 state가 따로 seleted가 되지 않는다.
+  - 그래서 실제 코드에서는 `.isSelected`를 통해 셀렉 상태를 수동으로 조절
+- 이미지 버튼은 버튼의 기능보다 이미지의 기능이 더 강하다. 따라서 이미지 버튼을 눌렀을 때 이벤트 또는 액션을 수행하기 위해서는 `.setOnTouchListenr` 를 활용해야 한다. (나중에 공부하자)
+- 버튼에서 이미지를 쓰려면 `background` 속성을 활용해야 한다. (그래서 미션이 `background` 구현이였나보다)
+
+#### 🔖 background VS src
+- background 
+  - 이미지가 이미지뷰 사이즈에 맞춰짐
+  - 패딩 값 적용 불가
+- src    
+  - 이미지가 원래 크기대로 보임
+  - 패딩 적용 가능
+  
+#### 🔖 scaleType
+- android:scaleType = "Center"
+  - 이미지의 크기와 비율을 유지하며 이미지의 중앙을 ImageView의 중심에 맞춥니다.
+- android:scaleType = "centerCrop"
+  - 이미지의 비율을 유지하며 가로,세로 중 짧은 쪽을 ImageView에 꽉 차게 출력합니다.
+- android:scaleType = "centerInside"
+  - 이미지의 가로, 세로 중 긴 쪽을 ImageView의 레이아웃에 맞춰 출력합니다. 이미지의 비율은 유지되며 남는 공간은 background의 색으로 채워집니다.
+- android:scaleType = "fitCenter"
+  - centerInside와 매우 유사합니다. 단, 이미지의 크기가 ImageView보다 작다면 ImageView의 크기에 따라 달라집니다.
+- android:scaleType = "fitStart"
+  - ImageView 안에서 가로, 세로 비율을 유지하며 fit하게 출력됩니다.
+- android:scaleType = "fitEnd"
+  - fitStart와 마찬가지로 가로&세로 비율을 유지하며 fit하게 출력됩니다. 우측 하단을 기준으로 정렬됩니다.
+- android:scaleType = "fitXY"
+  - 가로, 세로 비율에 상관 없이 ImageView에 꽉 차게 보여집니다. 이미지가 찌그러진 상태로 보입니다.
+- [출처](https://gdbagooni.tistory.com/15)
+- [공식문서](https://developer.android.com/reference/kotlin/android/widget/ImageView.ScaleType)
+- [ScaleToFit](https://developer.android.com/reference/kotlin/android/graphics/Matrix.ScaleToFit)
+
 ### 📚 4. 캐릭터 정보 나타내는 버튼 추가하기
 - 이미지를 클릭할 때마다 해당 이미지를 다시 ImageView에 넣어 보여줌ㅁㄴ
 - `background`를 설정하여 사실 이미지를 클릭할 때마다 색깔을 다르게 해서 클릭했다는 점을 알리고 싶었지만 문제가 발생하여 다음에 구현할 예정
