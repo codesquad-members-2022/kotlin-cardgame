@@ -1,9 +1,21 @@
 package com.example.kotlincardgame
 
 class TestCardDeck(_count: Int) : Deck {
-    override fun count(): Int {
-        TODO("Not yet implemented")
+    private val count = _count
+    private val deck = mutableListOf<Card>()
+
+    init {
+        reset()
     }
+
+    private fun Int.selectCard() = when (this) {
+        0 -> Card.Apple((1..10).random())
+        1 -> Card.Orange((1..10).random())
+        2 -> Card.Cherry((1..10).random())
+        else -> Card.Grape((1..10).random())
+    }
+    
+    override fun count() = count
 
     override fun shuffle() {
         TODO("Not yet implemented")
@@ -14,7 +26,9 @@ class TestCardDeck(_count: Int) : Deck {
     }
 
     override fun reset() {
-        TODO("Not yet implemented")
+        for (i in 0 until count) {
+            deck.add((0..3).random().selectCard())
+        }
     }
 
 
