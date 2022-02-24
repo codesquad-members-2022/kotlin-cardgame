@@ -82,7 +82,7 @@ OnDrawListener 를 채택하여 사용하였는데 draw 리스너는 리스너�
 - 포그라운드 앱의 Task 에서 stack 최상단에 있는 Activity 가 사용자에게 보여진다.
 - back 버튼이나 종료를 통해 stack 에서 pop 할 수 있다.
 
-### 동일한 Activity 에 대한 처리   
+### 동일한 Activity 에 대한 처리
 
 - Activity 는 호출 될때마다 기본적으로 새로운 객체를 생성함
 - 동일한 Activity에 대해 전에 있던 객체를 사용하기 위해서는 추가적 장치가 필요함
@@ -114,5 +114,42 @@ OnDrawListener 를 채택하여 사용하였는데 draw 리스너는 리스너�
 android:taskAffinity="com.gootle.android.youtube"/>
 ```
 
+## 5. Fragment
+
+### Fragment 생명주기
+
+- Activity와 비슷 한 생명주기를 가짐
+- onCreate 가 아닌 onCreateView 가 Activity 에 onCreate 에 대응함
+    - 레이아웃을 인플레이트 함
+    - View 객체들을 초기화 할 수 있음
+    - 매개변수인 container : ViewGroup 가 Fragment Activity 위 에 담길 곳임
+- Activity 와 다르게 addToBackStack() 함수를 명시적으로 호출 하지 않으면 backStack 에 담기지 않음
+
+### Fragment vs Activity
+
+- Fragment를 통해 좀더 유연한 UI 를 구성할 수 있다.
+    - 한 화면을 부분 부분으로 나누어 사용할 수 있음
+    - 엑티비티 일부 와 Fragment들로의 구성
+
+- 재사용성의 증가
+    - Fragment를 통해 조립식 화면 구성을 할 수 있다.
+    - DialogFragment 와 같은 경우는 FragmentManager 만 있으면 어떤 엑티비티나 Fragment 에서도 활용 가능하다
+
+- 퍼포먼스
+    - 액티비티보다 Fragment 가 더 가볍다
+    - 액티비티 스택에 쌓아놓는 것보다 Fragment backStack 으로의 관리가 메모리 효율적이다.
+    - 액티비티 스택은 앱수준에서 기록을 볼 수 가 없었음
+
+- 통신
+    - 액티비티 간 데이터를 공유는 Intent를 사용한다.
+    - Activity는 다른 Process에서 실행하는 것을 염두하고 설계 되었기에 메모리 영역을 공유하지 않는다.
+    - intent 는 IPC 통신을 통해서 전달되며 이는 매우 무겁다.
+    - 액티비티 간, 데이터를 전달하려면 직렬화/역직렬화 과정을 거쳐야 하고 이는 메모리 공유에 비해 절대 가벼운 작업은 아니다.
+    - 반면 액티비티를 공유하는 Fragment 끼리는 View Model 공유를 통해 쉽게 통신 가능
+
+- 총론
+    - Fragment 는 독립적으로 존재할 수 없으므로 Activity 를 아에 없앨 수 는 없다.
+    - FragmentManager Transaction 은 비동기 작업으로 예기치 못한 오류를 발생시키기도한다.
+    - Fragment 의 다양한 장점을 고려했을때 Activity 보다는 Fragment 위주의 Ui 구성이 좋겠다.
 
 
