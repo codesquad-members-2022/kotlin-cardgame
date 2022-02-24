@@ -43,7 +43,10 @@ class MainActivity : AppCompatActivity() {
         setNicknameEditTextLayout()
         setNicknameEditText()
         checkNicknameText()
-        clickBtnToShowImage()
+        clickBtnToShowImage(firstBtn)
+        clickBtnToShowImage(secondBtn)
+        clickBtnToShowImage(thirdBtn)
+        clickBtnToShowImage(fourthBtn)
         clickBtnToMoveCharActivity()
     }
 
@@ -68,26 +71,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun clickBtnToShowImage() {
-        firstBtn.setOnClickListener {
-            characterImage.setImageDrawable(getDrawable(R.drawable.first))
+    private fun setupBtnNotSelected() {
+        firstBtn.isSelected = false
+        secondBtn.isSelected = false
+        thirdBtn.isSelected = false
+        fourthBtn.isSelected = false
+    }
+
+    private fun clickBtnToShowImage(button: ImageButton) {
+        button.setOnClickListener {
+            setupBtnNotSelected()
+            characterImage.setImageDrawable(button.drawable)
+            button.isSelected = true
             isBtnSelected = true
-            selectedBtn = firstBtn
-        }
-        secondBtn.setOnClickListener {
-            characterImage.setImageDrawable(getDrawable(R.drawable.second))
-            isBtnSelected = true
-            selectedBtn = secondBtn
-        }
-        thirdBtn.setOnClickListener {
-            characterImage.setImageDrawable(getDrawable(R.drawable.third))
-            isBtnSelected = true
-            selectedBtn = thirdBtn
-        }
-        fourthBtn.setOnClickListener {
-            characterImage.setImageResource(R.drawable.fourth)
-            isBtnSelected = true
-            selectedBtn = fourthBtn
+            selectedBtn = button
         }
     }
 

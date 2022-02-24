@@ -32,8 +32,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/first"
-                android:scaleType="fitXY"
+                android:src="@drawable/selected_first_btn"
+                android:scaleType="fitCenter"
+                android:clickable="true"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
                 android:id="@+id/second_btn"
@@ -41,8 +42,8 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/second"
-                android:scaleType="fitXY"
+                android:src="@drawable/selected_second_btn"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
                 android:id="@+id/third_btn"
@@ -50,8 +51,8 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/third"
-                android:scaleType="fitXY"
+                android:src="@drawable/selected_third_btn"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"/>
         <ImageButton
                 android:id="@+id/fourth_btn"
@@ -59,8 +60,8 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/fourth"
-                android:scaleType="fitXY"
+                android:src="@drawable/selected_fourth_btn"
+                android:scaleType="fitCenter"
                 tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 
