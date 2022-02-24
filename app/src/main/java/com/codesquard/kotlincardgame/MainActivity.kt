@@ -28,8 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fourthBtn: ImageButton
     private lateinit var characterImage: ImageView
     private lateinit var selectedBtn: ImageButton
-    var isBtnSelected = false
-    var nickname = ""
+    private var isBtnSelected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,11 +102,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 nextActivityBtn.isEnabled = true
-                if ((p0?.contains("[A-Z|a-z]".toRegex())) == false) nextActivityBtn.isEnabled = false
-                p0?.forEach {
-                    if (!it.isLetterOrDigit()) nextActivityBtn.isEnabled = false
-                } ?: throw IllegalArgumentException("잘못된 값입니다")
-                nickname = p0.toString()
+                if ((p0?.contains("[a-zA-Z]".toRegex())) == false || (p0?.contains("[^A-Za-z0-9]".toRegex()) == true))
+                    nextActivityBtn.isEnabled = false
             }
         })
     }

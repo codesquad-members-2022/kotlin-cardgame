@@ -15,9 +15,9 @@ import android.widget.TextView
 import org.w3c.dom.Text
 
 class CharacterFragment : Fragment() {
-    lateinit var charImageView: ImageView
-    lateinit var charText: TextView
-    lateinit var charBtn: Button
+    private lateinit var charImageView: ImageView
+    private lateinit var charText: TextView
+    private lateinit var charBtn: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

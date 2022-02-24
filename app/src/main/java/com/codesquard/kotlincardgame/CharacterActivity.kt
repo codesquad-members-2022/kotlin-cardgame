@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class CharacterActivity : AppCompatActivity() {
-    lateinit var bottomNav: BottomNavigationView
+    private lateinit var bottomNav: BottomNavigationView
     private val charFragment = CharacterFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
