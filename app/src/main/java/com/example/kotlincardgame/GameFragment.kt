@@ -28,7 +28,7 @@ class GameFragment : BaseFragment<FragmentGameBinding>(FragmentGameBinding::infl
             val context = requireContext()
             checkUser(
                 view,
-                share.getAttribute(context,"userName"),
+                share.getAttribute(context, "userName"),
                 binding.textNickname,
                 binding.character,
                 share.getAttribute(context, "resName"),

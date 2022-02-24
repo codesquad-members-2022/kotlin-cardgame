@@ -23,7 +23,7 @@ class OptionFragment : BaseFragment<FragmentOptionBinding>(FragmentOptionBinding
             val context = requireContext()
             checkUser(
                 view,
-                share.getAttribute(context,"userName"),
+                share.getAttribute(context, "userName"),
                 binding.userName,
                 binding.userCharacter,
                 share.getAttribute(context, "resName"),

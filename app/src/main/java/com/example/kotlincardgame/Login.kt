@@ -15,10 +15,10 @@ fun checkUser(
     imageView: ImageView,
     resName: String?,
     packName: String
-    ) = when (nickname) {
-        null -> guestUser(textView, imageView)
-        else -> memberUser(view, nickname, textView, imageView, resName, packName)
-    }
+) = when (nickname) {
+    null -> guestUser(textView, imageView)
+    else -> memberUser(view, nickname, textView, imageView, resName, packName)
+}
 
 private fun guestUser(textView: TextView, imageView: ImageView) {
     textView.text = "Guest"

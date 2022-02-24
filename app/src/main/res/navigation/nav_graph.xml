@@ -18,7 +18,7 @@
         android:id="@+id/make_character"
         android:name="com.example.kotlincardgame.MakeCharacterFragment"
         android:label="fragment_make_character"
-        tools:layout="@layout/fragment_make_character" >
+        tools:layout="@layout/fragment_make_character">
         <action
             android:id="@+id/action_makeCharacterFragment_to_game"
             app:destination="@id/game" />

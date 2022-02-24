@@ -19,7 +19,9 @@ import com.example.kotlincardgame.databinding.FragmentMakeCharacterBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.regex.Pattern
 
-class MakeCharacterFragment : BaseFragment<FragmentMakeCharacterBinding>(FragmentMakeCharacterBinding::inflate) , View.OnClickListener {
+class MakeCharacterFragment :
+    BaseFragment<FragmentMakeCharacterBinding>(FragmentMakeCharacterBinding::inflate),
+    View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,6 +36,7 @@ class MakeCharacterFragment : BaseFragment<FragmentMakeCharacterBinding>(Fragmen
         }
         binding.btnNext.setOnClickListener(this)
     }
+
     override fun onClick(view: View) = when (view.id) {
         R.id.ib_character_1 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_puka)
@@ -61,19 +64,22 @@ class MakeCharacterFragment : BaseFragment<FragmentMakeCharacterBinding>(Fragmen
             view.findNavController().navigate(R.id.game)
         }
     }
-    private fun setAttributeDrawable(resName: String){
+
+    private fun setAttributeDrawable(resName: String) {
         val share = Login()
         context?.let {
             share.removeAttribute(it, "resName")
             share.setAttribute(it, "resName", resName)
         }
     }
-    private fun setAttributeName(){
+
+    private fun setAttributeName() {
         val share = Login()
         context?.let {
-            share.setAttribute(it,"userName",binding.editText.text.toString())
+            share.setAttribute(it, "userName", binding.editText.text.toString())
         }
     }
+
     private fun checkNickname() {
         binding.editText.filters = arrayOf(InputFilter { source, _, _, _, _, _ ->
             val ps: Pattern =
