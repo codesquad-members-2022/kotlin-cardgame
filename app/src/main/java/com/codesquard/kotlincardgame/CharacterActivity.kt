@@ -44,8 +44,8 @@ class CharacterActivity : AppCompatActivity() {
     }
 
     private fun transferDataTofragment() {
-        val nickname = intent.getStringExtra("nickname")!!
-        val image = intent.getByteArrayExtra("character")!!
+        val nickname = intent.getStringExtra("nickname")
+        val image = intent.getByteArrayExtra("character")
         val bundle = Bundle()
         bundle.putString("name", nickname)
         bundle.putByteArray("char", image)
