@@ -16,7 +16,7 @@ class MakeCharacterFragment :
     View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Logger.addLogAdapter(AndroidLogAdapter())
+//        Logger.addLogAdapter(AndroidLogAdapter())
         super.onViewCreated(view, savedInstanceState)
         binding.btnNext.isEnabled = false
         binding.ibCharacter1.setOnClickListener(this)
@@ -25,36 +25,36 @@ class MakeCharacterFragment :
         binding.ibCharacter4.setOnClickListener(this)
         binding.editText.doAfterTextChanged {
             checkNickname()
-            vitalizeNextButton()
+            activateNextButton()
         }
         binding.btnNext.setOnClickListener(this)
-        val apple = Card.Apple(1)
-        val cherry = Card.Cherry(10)
-        val grape = Card.Grape(5)
-        val orange = Card.Orange(3)
-        Logger.i("${getCard(apple)}, ${getCard(cherry)}, ${getCard(grape)}, ${getCard(orange)}")
+//        val apple = Card.Apple(1)
+//        val cherry = Card.Cherry(10)
+//        val grape = Card.Grape(5)
+//        val orange = Card.Orange(3)
+//        Logger.i("${getCard(apple)}, ${getCard(cherry)}, ${getCard(grape)}, ${getCard(orange)}")
     }
 
     override fun onClick(view: View) = when (view.id) {
         R.id.ib_character_1 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_puka)
             setAttributeDrawable("btn_off_puka")
-            vitalizeNextButton()
+            activateNextButton()
         }
         R.id.ib_character_2 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_lion)
             setAttributeDrawable("btn_off_lion")
-            vitalizeNextButton()
+            activateNextButton()
         }
         R.id.ib_character_3 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_jeju)
             setAttributeDrawable("btn_off_jeju")
-            vitalizeNextButton()
+            activateNextButton()
         }
         R.id.ib_character_4 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
             setAttributeDrawable("btn_off_eb13")
-            vitalizeNextButton()
+            activateNextButton()
         }
         else -> {
             activity?.actionBar?.title = "캐릭터 선택"
@@ -93,10 +93,10 @@ class MakeCharacterFragment :
         }, InputFilter.LengthFilter(5))
     }
 
-    private fun checkChooseCharacter() = binding.ivCharacterInfo.drawable != null
+    private fun checkCharacter() = binding.ivCharacterInfo.drawable != null
 
-    private fun vitalizeNextButton() {
-        if (checkChooseCharacter() && binding.editText.text.toString() != "") {
+    private fun activateNextButton() {
+        if (checkCharacter() && binding.editText.text.toString() != "") {
             binding.btnNext.isEnabled = true
             return
         }

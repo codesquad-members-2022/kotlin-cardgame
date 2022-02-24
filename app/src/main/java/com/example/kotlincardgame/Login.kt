@@ -16,16 +16,16 @@ fun checkUser(
     resName: String?,
     packName: String
 ) = when (nickname) {
-    null -> guestUser(textView, imageView)
-    else -> memberUser(view, nickname, textView, imageView, resName, packName)
+    null -> getGuestUserPage(textView, imageView)
+    else -> getMemberUserPage(view, nickname, textView, imageView, resName, packName)
 }
 
-private fun guestUser(textView: TextView, imageView: ImageView) {
+private fun getGuestUserPage(textView: TextView, imageView: ImageView) {
     textView.text = "Guest"
     imageView.setBackgroundColor(Color.GRAY)
 }
 
-private fun memberUser(
+private fun getMemberUserPage(
     view: View,
     nickname: String?,
     textView: TextView,
