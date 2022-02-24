@@ -1,5 +1,4 @@
-# kotlin-cardgame
-- 요구사항 파악
-- 구현 완료 후 자신의 github 아이디에 해당하는 브랜치에 PR을 통해 코드 리뷰 요청
-- 코드 리뷰 피드백에 대한 개선 작업 후 push
-- 모든 피드백 완료 후 다음 단계를 도전하고 이전 과정 반복
+# Step 1
+
+<img src="https://user-images.githubusercontent.com/65541248/155129510-7c1835c1-9e81-4ba1-bad6-8f84461d3765.png" width="300">
+<img src="https://user-images.githubusercontent.com/65541248/155129512-d57b9ccb-046c-4330-bb30-570d29e105dd.png" width="300">
