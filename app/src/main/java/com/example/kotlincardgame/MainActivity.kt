@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.ibCharacter3.setOnClickListener(this)
         binding.ibCharacter4.setOnClickListener(this)
         binding.editText.doAfterTextChanged {
-            stimulateNextButton()
+            activateNextButton()
             checkNickname()
         }
         binding.btnNext.setOnClickListener(this)
@@ -38,19 +38,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) = when (view.id) {
         R.id.ib_character_1 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_puka)
-            stimulateNextButton()
+            activateNextButton()
         }
         R.id.ib_character_2 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_lion)
-            stimulateNextButton()
+            activateNextButton()
         }
         R.id.ib_character_3 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_jeju)
-            stimulateNextButton()
+            activateNextButton()
         }
         R.id.ib_character_4 -> {
             binding.ivCharacterInfo.setImageResource(R.drawable.btn_off_eb13)
-            stimulateNextButton()
+            activateNextButton()
         }
         else -> {
             val fragment = GameFragment()
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun checkCharacter() =
         binding.ivCharacterInfo.drawable != null
 
-    private fun stimulateNextButton() {
+    private fun activateNextButton() {
         if (checkCharacter() && binding.editText.text.toString() != "") {
             binding.btnNext.isEnabled = true
             return
