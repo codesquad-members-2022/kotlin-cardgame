@@ -90,16 +90,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkNicknameText() {
         nicknameText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if ((p0?.length ?: 0) == 0) nextActivityBtn.isEnabled = false
+            override fun onTextChanged(s: CharSequence?, start: Int, after: Int, count: Int) {
+                if ((s?.length ?: 0) == 0) nextActivityBtn.isEnabled = false
             }
 
-            override fun afterTextChanged(p0: Editable?) {
+            override fun afterTextChanged(editableText: Editable?) {
                 nextActivityBtn.isEnabled = true
-                if ((p0?.contains("[a-zA-Z]".toRegex())) == false || (p0?.contains("[^A-Za-z0-9]".toRegex()) == true))
+                if ((editableText?.contains("[a-zA-Z]".toRegex())) == false || (editableText?.contains("[^A-Za-z0-9]".toRegex()) == true))
                     nextActivityBtn.isEnabled = false
             }
         })
