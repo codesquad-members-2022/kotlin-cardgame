@@ -1,10 +1,6 @@
 package com.example.kotlincardgame
 
-import android.util.Log
-import com.orhanobut.logger.AndroidLogAdapter
-import com.orhanobut.logger.Logger
-
-fun test(){
+fun test() {
     //Logger.addLogAdapter(AndroidLogAdapter())
     val apple = Card.Apple(1)
     val cherry = Card.Cherry(10)
@@ -24,6 +20,7 @@ fun test(){
     println("카드는 ${deck.count()}개")
 
 }
+
 fun main() {
     test()
 }

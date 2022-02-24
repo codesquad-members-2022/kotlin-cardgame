@@ -9,6 +9,7 @@ fun Card.getCard() = when (this) {
     is Card.Cherry -> "🍒${this.get()}"
     is Card.Grape -> "🍇${this.get()}"
 }
+
 sealed class Card {
     data class Apple(private val number: Int) : Card() {
         fun get() = when (number) {
