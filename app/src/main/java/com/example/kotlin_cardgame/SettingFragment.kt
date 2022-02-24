@@ -26,7 +26,7 @@ class SettingFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_seting, container, false)
         nicknameTextView = view.findViewById(R.id.nickname_text_view)
         emotionImageView = view.findViewById(R.id.emotion_image_view)
-        informationButton = view.findViewById(R.id.information_button)
+        informationButton = view.findViewById(R.i   d.information_button)
 
         initiate(container)
         informationButtonListening()
