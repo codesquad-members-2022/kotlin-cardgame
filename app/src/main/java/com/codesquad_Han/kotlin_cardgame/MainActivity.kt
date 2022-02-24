@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         setCharacterClickListener()
         setEditText()
         setBtn()
+        setBtnNavigation()
     }
 
     fun setCharacterArray() {
@@ -107,6 +108,8 @@ class MainActivity : AppCompatActivity() {
     fun checkBtn() {
         binding.btnNext.isEnabled =
             isAlphabetIncluded && isSpeciaCharactersNotIncluded && isCharacterSelected
+        binding.btnNavigation.isEnabled =
+            isAlphabetIncluded && isSpeciaCharactersNotIncluded && isCharacterSelected
     }
 
     fun setBtn() {
@@ -118,6 +121,20 @@ class MainActivity : AppCompatActivity() {
 
             val currentCharacterData = CharacterData(binding.etNickName.text.toString(), byteArray)
             val intent = Intent(this, GameActivity::class.java)
+            intent.putExtra("characterData", currentCharacterData)
+            startActivity(intent)
+        }
+    }
+
+    fun setBtnNavigation() {
+        binding.btnNavigation.setOnClickListener {
+            val bitmap = binding.ivCharacterSelected.drawable.toBitmap()
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+
+            val currentCharacterData = CharacterData(binding.etNickName.text.toString(), byteArray)
+            val intent = Intent(this, GameNavigationActivity::class.java)
             intent.putExtra("characterData", currentCharacterData)
             startActivity(intent)
         }
