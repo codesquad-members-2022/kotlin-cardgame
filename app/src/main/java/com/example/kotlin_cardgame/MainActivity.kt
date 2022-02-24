@@ -2,13 +2,11 @@ package com.example.kotlin_cardgame
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_cardgame.data.UserInfo
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
 import com.example.kotlin_cardgame.util.ImageUtil
@@ -16,24 +14,18 @@ import com.example.kotlin_cardgame.util.ImageUtil
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var curSelectBtn: ImageButton? = null
+    private var bSelected: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        with (binding) {
-            btnCharacter1.setOnClickListener(clickCharacterButtonListener)
-            btnCharacter2.setOnClickListener(clickCharacterButtonListener)
-            btnCharacter3.setOnClickListener(clickCharacterButtonListener)
-            btnCharacter4.setOnClickListener(clickCharacterButtonListener)
-        }
-
+        setAllCharacterButtonListener()
         binding.editNickname.addTextChangedListener(verifyInputValue)
 
         val intent = Intent(this, SubActivity::class.java)
         binding.btnNext.setOnClickListener {
-            if (curSelectBtn == null) {
+            if (!bSelected) {
                 Toast.makeText(this, "캐릭터를 선택해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -43,6 +35,47 @@ class MainActivity : AppCompatActivity() {
                 binding.editNickname.text.toString())
             )
             startActivity(intent)
+        }
+    }
+
+    private fun setAllCharacterButtonListener() {
+        with(binding) {
+            btnCharacter1.setOnClickListener {
+                setAllCharacterButtonUnselect()
+                ivSelectCharacter.setImageDrawable(btnCharacter1.drawable)
+                btnCharacter1.setBackgroundResource(R.color.character_btn_select_bg)
+                bSelected = true
+            }
+
+            btnCharacter2.setOnClickListener {
+                setAllCharacterButtonUnselect()
+                ivSelectCharacter.setImageDrawable(btnCharacter2.drawable)
+                btnCharacter2.setBackgroundResource(R.color.character_btn_select_bg)
+                bSelected = true
+            }
+
+            btnCharacter3.setOnClickListener {
+                setAllCharacterButtonUnselect()
+                ivSelectCharacter.setImageDrawable(btnCharacter3.drawable)
+                btnCharacter3.setBackgroundResource(R.color.character_btn_select_bg)
+                bSelected = true
+            }
+
+            btnCharacter4.setOnClickListener {
+                setAllCharacterButtonUnselect()
+                ivSelectCharacter.setImageDrawable(btnCharacter4.drawable)
+                btnCharacter4.setBackgroundResource(R.color.character_btn_select_bg)
+                bSelected = true
+            }
+        }
+    }
+
+    private fun setAllCharacterButtonUnselect() {
+        with(binding) {
+            btnCharacter1.setBackgroundResource(R.color.character_btn_normal_bg)
+            btnCharacter2.setBackgroundResource(R.color.character_btn_normal_bg)
+            btnCharacter3.setBackgroundResource(R.color.character_btn_normal_bg)
+            btnCharacter4.setBackgroundResource(R.color.character_btn_normal_bg)
         }
     }
 
@@ -59,15 +92,6 @@ class MainActivity : AppCompatActivity() {
                 tvInputVerify.text = "알파벳이 1개 이상 포함되어야 합니다. (공백, 특수문자 제외)"
                 btnNext.isEnabled = false
             }
-        }
-    }
-
-    private val clickCharacterButtonListener = View.OnClickListener {
-        (it as? ImageButton)?.apply {
-            curSelectBtn?.apply { this.setBackgroundResource(R.color.character_btn_normal_bg) }
-            curSelectBtn = this
-            binding.ivSelectCharacter.setImageDrawable(this.drawable)
-            this.setBackgroundResource(R.color.character_btn_select_bg)
         }
     }
 }
