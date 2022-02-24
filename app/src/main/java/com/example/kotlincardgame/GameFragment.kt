@@ -2,7 +2,6 @@ package com.example.kotlincardgame
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.kotlincardgame.databinding.FragmentGameBinding
 
