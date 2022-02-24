@@ -17,14 +17,12 @@ class CardDeckView {
                     }
                     "Draw" -> {
                         println(cardDeck?.removeOne())
-                        println(cardDeck)
                     }
                     "Reset" -> {
                         cardDeck?.resetDeck()
-                        println(cardDeck)
                     }
                     "Count" -> {
-                        println(cardDeck)
+                        println(cardDeck?.count())
                     }
                     "Exit","exit"->{
                         break

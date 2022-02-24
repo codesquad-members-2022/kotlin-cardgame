@@ -3,7 +3,9 @@ import java.util.*
 class CardDeck(deckSize: Int) {
     val cardDeck: ArrayList<Card> = arrayListOf()
     private val removedDeck: ArrayList<Pair<Int, Card>> = arrayListOf()
-    private val fruitList = listOf<String>("Apple", "Grape", "Cherry", "Orange")
+    private val fruitList = listOf<FruitShape>(FruitShape.APPLE, FruitShape.GRAPE,
+        FruitShape.CHERRY, FruitShape.ORANGE
+    )
 
     init {
         makeDeck(deckSize)

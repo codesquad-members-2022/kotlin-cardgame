@@ -5,12 +5,12 @@
 
  */
 
-class Card(fruitName:String, cardValue:Int) {
+class Card(fruit:FruitShape, cardValue:Int) {
     private val cardValue = CardValue(cardValue)
-    private val cardShape = CardShape(fruitName)
+    private val cardShape = fruit.fruitShape
 
     override fun toString(): String {
-        return "$cardShape$cardValue"
+        return "${this.cardShape} $cardValue"
     }
 }
 
