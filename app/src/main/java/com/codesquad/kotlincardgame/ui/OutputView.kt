@@ -1,6 +1,7 @@
 package com.codesquad.kotlincardgame.ui
 
 import com.codesquad.kotlincardgame.card.Card
+import com.codesquad.kotlincardgame.player.Player
 import java.lang.System.lineSeparator
 
 object OutputView {
@@ -31,4 +32,7 @@ object OutputView {
         println(String.format(REST_MESSAGE, count))
     }
 
+    fun printPlayerInformation(player: Player) {
+        println("${player.name.name} ${player.cards.cards}")
+    }
 }

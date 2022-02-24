@@ -1,7 +1,7 @@
 package com.codesquad.kotlincardgame.card
 
 enum class Rank(val rank: String) {
-    ONE("1"),
+    ONE("A"),
     TWO("2"),
     THREE("3"),
     FOUR("4"),

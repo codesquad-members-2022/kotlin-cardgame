@@ -1,6 +1,6 @@
 package com.codesquad.kotlincardgame.card
 
-import com.codesquad.kotlincardgame.card.Command.*
+import com.codesquad.kotlincardgame.player.PlayerFactory
 import com.codesquad.kotlincardgame.ui.InputView
 import com.codesquad.kotlincardgame.ui.OutputView
 import java.lang.IllegalArgumentException
@@ -8,32 +8,23 @@ import java.lang.IllegalArgumentException
 class CardGame() {
 
     fun run() {
-        OutputView.printInit()
-        var cards = CardDeck()
+        InputView.askGameModeSelection()
+        var cards = CardFactory.createCards()
+        val players = PlayerFactory.createPlayers()
 
-        try {
-            while (true) {
-                val input =
-                    InputView.execute() ?: throw IllegalArgumentException(NULL_EXCEPTION_MESSAGE)
-                when (Command.values(input)) {
-                    RESET -> {
-                        cards = cards.reset()
-                        OutputView.printReset(cards.count())
-                    }
-                    SHUFFLE -> {
-                        cards = cards.shuffle()
-                        OutputView.printShuffle(cards.count())
-                    }
-                    REMOVE -> {
-                        val card = cards.removeOne()
-                        OutputView.printRemain(card, cards.count())
-                    }
-                    EXIT -> break
-                }
+        while (true) {
+            val input =
+                InputView.execute() ?: throw IllegalArgumentException(NULL_EXCEPTION_MESSAGE)
+            val gameMode = GameMode.values(input)
+            if (!cards.enoughCards(gameMode)) return
+            for (idx in 0 until players.size - 1) {
+                val playerCards = cards.remove(gameMode.gameMode)
+                players[idx].take(playerCards)
+                OutputView.printPlayerInformation(players[idx])
             }
-        } catch (e: Exception) {
-            println(e.message)
-            run()
+            val robotCards = cards.remove(3)
+            players[players.lastIndex].take(robotCards)
+            OutputView.printPlayerInformation(players[players.lastIndex])
         }
     }
 

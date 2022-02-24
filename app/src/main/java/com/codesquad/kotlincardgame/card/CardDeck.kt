@@ -1,8 +1,20 @@
 package com.codesquad.kotlincardgame.card
 
-class CardDeck(private val _cards: MutableList<Card> = mutableListOf()) {
+import com.codesquad.kotlincardgame.card.CardFactory.createCards
+import com.codesquad.kotlincardgame.player.PlayerFactory.PARTICIPANT
+import com.codesquad.kotlincardgame.player.PlayerFactory.ROBOT
+import com.codesquad.kotlincardgame.player.PlayerFactory.ROBOT_CARD_COUNT
 
-    fun reset(): CardDeck = makeAllCards()
+class CardDeck(private var _cards: MutableList<Card> = mutableListOf()) {
+
+    val cards: List<Card>
+        get() = _cards.toList()
+
+    fun replace(cards: CardDeck) {
+        _cards = cards.cards.toMutableList()
+    }
+
+    fun reset(): CardDeck = createCards()
 
     fun count(): Int = _cards.size
 
@@ -16,18 +28,21 @@ class CardDeck(private val _cards: MutableList<Card> = mutableListOf()) {
 
     fun removeOne(): Card {
         require(_cards.isNotEmpty()) { EMPTY_MESSAGE }
-        val randomIndex = (1.._cards.size).random()
+        val randomIndex = (1 until _cards.size).random()
         return _cards.removeAt(randomIndex)
     }
 
-    private fun makeAllCards(): CardDeck {
-        val cards = mutableListOf<Card>()
-        Rank.values().forEach { rank ->
-            Suit.values().forEach { suit ->
-                cards.add(Card(suit, rank))
-            }
+    fun remove(numberOfCards: Int): CardDeck {
+        var cards = mutableListOf<Card>()
+        repeat(numberOfCards) {
+            cards.add(removeOne())
         }
         return CardDeck(cards)
+    }
+
+    fun enoughCards(gameMode: GameMode): Boolean {
+        val requiredCard = gameMode.gameMode * (PARTICIPANT) + ROBOT * ROBOT_CARD_COUNT
+        return _cards.size >= requiredCard
     }
 
     companion object {
