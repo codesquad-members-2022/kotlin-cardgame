@@ -26,6 +26,7 @@ class CharacterActivity : AppCompatActivity() {
                 R.id.game -> {
                     supportFragmentManager.commit {
                         replace(R.id.layout_fragment, GameFragment())
+                        addToBackStack(null)
                     }
                     true
                 }
@@ -33,6 +34,7 @@ class CharacterActivity : AppCompatActivity() {
                     transferDataTofragment()
                     supportFragmentManager.commit {
                         replace(R.id.layout_fragment, charFragment)
+                        addToBackStack(null)
                     }
                     true
                 }
