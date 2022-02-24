@@ -19,9 +19,13 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.second_activity)
 
         val text = intent.getStringExtra("nickname")
-        val characterChosen = intent.getIntExtra("character", 0)
+        val characterChosen = when (intent.getCharExtra("character", 'a')) {
+            'a' -> 1
+            'b' -> 2
+            'c' -> 3
+            else -> 4
+        }
         val bundle = bundleOf("nickname" to text, "character" to characterChosen)
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_main)
         val navController =
             supportFragmentManager.findFragmentById(R.id.container_main)?.findNavController()
