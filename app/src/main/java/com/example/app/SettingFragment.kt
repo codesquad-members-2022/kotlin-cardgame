@@ -20,11 +20,11 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gameID = view?.findViewById<TextView>(R.id.show_id_text)
-        val characterImage = view?.findViewById<ImageView>(R.id.character_selected_image)
+        val gameID = view.findViewById<TextView>(R.id.show_id_text)
+        val characterImage = view.findViewById<ImageView>(R.id.character_selected_image)
         val userData = arguments?.getSerializable("user") as User
 
-        gameID?.text = userData.username
-        characterImage?.setImageResource(userData.Image)
+        gameID.text = userData.username
+        characterImage.setImageResource(userData.Image)
     }
 }

@@ -10,11 +10,6 @@ import android.widget.*
 import java.util.regex.Pattern
 import java.io.Serializable
 
-
-data class User(
-    val username: String, val Image: Int
-) : Serializable
-
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
