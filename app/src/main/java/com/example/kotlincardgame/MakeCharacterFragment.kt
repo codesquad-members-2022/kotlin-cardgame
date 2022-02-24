@@ -2,28 +2,21 @@ package com.example.kotlincardgame
 
 import android.os.Bundle
 import android.text.InputFilter
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.core.view.forEach
 import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.kotlincardgame.databinding.FragmentMakeCharacterBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 import java.util.regex.Pattern
+
 
 class MakeCharacterFragment :
     BaseFragment<FragmentMakeCharacterBinding>(FragmentMakeCharacterBinding::inflate),
     View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Logger.addLogAdapter(AndroidLogAdapter())
         super.onViewCreated(view, savedInstanceState)
         binding.btnNext.isEnabled = false
         binding.ibCharacter1.setOnClickListener(this)
@@ -35,6 +28,11 @@ class MakeCharacterFragment :
             vitalizeNextButton()
         }
         binding.btnNext.setOnClickListener(this)
+        val apple = Card.Apple(1)
+        val cherry = Card.Cherry(10)
+        val grape = Card.Grape(5)
+        val orange = Card.Orange(3)
+        Logger.i("${getCard(apple)}, ${getCard(cherry)}, ${getCard(grape)}, ${getCard(orange)}")
     }
 
     override fun onClick(view: View) = when (view.id) {
