@@ -11,6 +11,14 @@
 
 ![studio64_JqRz8Lm7sQ](https://user-images.githubusercontent.com/83396157/155266240-164e27d3-9d5c-4895-83b7-b51006b2d783.gif)
 
+# kotlin-cardgame card덱 구성
+
+- 게임 로직 구현을 위한 카드 클래스 설계도
+- 카드덱 데이터 클래스에 자료를 집어 넣어주었습니다
+- 카드덱 게임 인터페이스 생성 및 팩토리 패턴을 통해서 카드 덱을 만들려고 하고 있습니다. 
+
+![image0](https://user-images.githubusercontent.com/83396157/155649345-e6846231-bd3f-41da-a1ee-7318c9377813.jpeg)
+
 
 # 추가 학습및 정리
 - notion에 정리하였습니다.
