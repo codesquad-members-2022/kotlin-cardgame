@@ -2,7 +2,11 @@ package com.example.cardgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cardgame.databinding.SecondActivityBinding
@@ -15,19 +19,19 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.second_activity)
 
         val text = intent.getStringExtra("nickname")
-        val characterChosen = intent.getIntExtra("character",0)
-
-        val bundle = Bundle()
-        bundle.putString("nickname",text)
-        val bundle2 = Bundle()
-        bundle2.putInt("character",characterChosen)
-        SettingFragment().arguments = bundle
-
+        val characterChosen = when (intent.getCharExtra("character", 'a')) {
+            'a' -> 1
+            'b' -> 2
+            'c' -> 3
+            else -> 4
+        }
+        val bundle = bundleOf("nickname" to text, "character" to characterChosen)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_main)
         val navController =
             supportFragmentManager.findFragmentById(R.id.container_main)?.findNavController()
         navController?.let {
             bottomNavigationView.setupWithNavController(it)
+            it.setGraph(R.navigation.main_navigation, bundle)
         }
     }
 }

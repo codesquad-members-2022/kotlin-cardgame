@@ -30,12 +30,10 @@ class SettingFragment : Fragment() {
         val button = view.findViewById<Button>(R.id.btnHelp)
 
         val nickname = arguments?.getString("nickname")
-        val characterChosen = arguments?.getInt("character")
-
-        when (characterChosen){
-            1->imageView.setImageResource(R.drawable.ic_baseline_emoji_emotions_24)
-            2->imageView.setImageResource(R.drawable.ic_baseline_face_24)
-            3->imageView.setImageResource(R.drawable.ic_baseline_mood_bad_24)
+        when (arguments?.getInt("character")) {
+            1 -> imageView.setImageResource(R.drawable.ic_baseline_emoji_emotions_24)
+            2 -> imageView.setImageResource(R.drawable.ic_baseline_face_24)
+            3 -> imageView.setImageResource(R.drawable.ic_baseline_mood_bad_24)
             else -> imageView.setImageResource(R.drawable.ic_baseline_sentiment_dissatisfied_24)
         }
 

@@ -5,16 +5,14 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.cardgame.databinding.ActivityMainBinding
 import java.util.regex.Pattern
 
-const val NONE = 0
-const val CHARACTER1 = 1
-const val CHARACTER2 = 2
-const val CHARACTER3 = 3
-const val CHARACTER4 = 4
+const val NONE: Char = '0'
+const val CHARACTER1: Char = 'a'
+const val CHARACTER2: Char = 'b'
+const val CHARACTER3: Char = 'c'
+const val CHARACTER4: Char = 'd'
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 binding.btnNext.isEnabled =
                     validation(editable.toString())
-                            && characterChosen != 0
+                            && characterChosen != '0'
             }
         })
 
@@ -62,7 +60,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 
     private fun validation(nickname: String): Boolean {
         val pattern1 = Pattern.compile("^[a-zA-Z0-9]*\$")

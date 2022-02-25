@@ -8,9 +8,23 @@
     <fragment
         android:id="@+id/navigation_setting"
         android:name="com.example.cardgame.SettingFragment"
-        android:label="SettingFragment" />
+        android:label="SettingFragment">
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+        <argument
+            android:name="character"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_game"
         android:name="com.example.cardgame.GameFragment"
-        android:label="GameFragment" />
+        android:label="GameFragment">
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+        <argument
+            android:name="character"
+            app:argType="integer" />
+    </fragment>
 </navigation>
