@@ -2,13 +2,175 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="30dp"
+    android:paddingRight="20dp"
+    android:weightSum="5.5">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="게임"
-        android:textSize="40sp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
+        <ToggleButton
+            android:id="@+id/tb_2_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_toggle"
+            android:textOff="@string/toggleButton_2cards"
+            android:textOn="@string/toggleButton_2cards" />
+
+        <ToggleButton
+            android:id="@+id/tb_3_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/selector_toggle"
+            android:textOff="@string/toggleButton_3cards"
+            android:textOn="@string/toggleButton_3cards" />
+
+        <ToggleButton
+            android:id="@+id/tb_4_cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/selector_toggle"
+            android:textOff="@string/toggleButton_4cards"
+            android:textOn="@string/toggleButton_4cards" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Player1"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Player2"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_player3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Player3"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_robot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="로봇"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+
+            <TextView
+                style="@style/TEXTVIEW_CARD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2\n🍏" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
