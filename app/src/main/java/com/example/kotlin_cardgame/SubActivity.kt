@@ -3,11 +3,11 @@ package com.example.kotlin_cardgame
 import android.annotation.SuppressLint
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
-import android.graphics.drawable.Drawable
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -71,8 +71,27 @@ class SubActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> GameFragment()
-                else -> SettingFragment()
+                0 -> {
+                    val bundle = Bundle()
+                    bundle.putString("test", "test")
+
+                    val s = GameFragment()
+                    s.arguments = bundle
+
+                    s
+                }
+                else -> {
+//                    val bitmap = intent.getParcelableExtra<Bitmap>("first")
+
+//                    val bundle = Bundle()
+//                    bundle.putParcelable("first", bitmap)
+                    val bundleExtra = intent.getBundleExtra("first")
+                    Log.d("test", bundleExtra.toString())
+                    val s = SettingFragment()
+                    s.arguments = bundleExtra
+
+                    s
+                }
             }
         }
     }
