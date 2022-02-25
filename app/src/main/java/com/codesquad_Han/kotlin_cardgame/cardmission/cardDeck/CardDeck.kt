@@ -16,7 +16,12 @@ class CardDeck(override var initialCardNum: Int, cardListMaker: BaseCardListMake
 
     override fun shuffle() {
         if (deck.size > 0) {
-
+            for(i in 0 until deck.size){
+                val randomIndex = (0..deck.size-1).random()
+                val tempCard = deck[i]
+                deck[i] = deck[randomIndex]
+                deck[randomIndex] = tempCard
+            }
         } else {
             println("덱에 카드가 0장 있으므로 셔플이 불가능합니다")
         }
