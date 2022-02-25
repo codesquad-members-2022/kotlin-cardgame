@@ -24,8 +24,12 @@
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/selected_third_btn.xml" value="0.206640625" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/third.xml" value="0.1361111111111111" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/third_pressed.xml" value="0.1361111111111111" />
+<<<<<<< HEAD
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/drawable/third_selected.xml" value="0.206640625" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/activity_character.xml" value="0.25" />
+=======
+        <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/activity_character.xml" value="0.1" />
+>>>>>>> 382f2bb (Feat : Jetpack 활용하여 화면 이동 구현)
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/activity_main.xml" value="0.18412698412698414" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/fragment_character.xml" value="0.25" />
         <entry key="..\:/Kotlin/Android/Week08/kotlin-cardgame/app/src/main/res/layout/fragment_game.xml" value="0.2626366120218579" />

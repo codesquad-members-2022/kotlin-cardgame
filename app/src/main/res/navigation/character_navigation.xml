@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/character_navigation"
+  app:startDestination="@id/navigation_setting">
+
+  <fragment
+    android:id="@+id/navigation_setting"
+    android:name="com.codesquard.kotlincardgame.CharacterFragment"
+    android:label="fragment_character"
+    tools:layout="@layout/fragment_character">
+    <action
+      android:id="@+id/transfer_data"
+      app:destination="@id/navigation_setting"/>
+  </fragment>
+  <fragment
+    android:id="@+id/navigation_game"
+    android:name="com.codesquard.kotlincardgame.GameFragment"
+    android:label="GameFragment"
+    tools:layout="@layout/fragment_game"/>
+</navigation>

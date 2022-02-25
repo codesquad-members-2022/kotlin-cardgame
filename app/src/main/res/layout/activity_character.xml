@@ -24,9 +24,11 @@
 
     <androidx.fragment.app.FragmentContainerView
             android:id="@+id/layout_fragment"
-            android:name="com.codesquard.kotlincardgame.GameFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:navGraph="@navigation/character_navigation"
+            app:defaultNavHost="true"/>
 
 </RelativeLayout>
 
