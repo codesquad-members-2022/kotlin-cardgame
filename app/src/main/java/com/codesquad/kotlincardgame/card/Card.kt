@@ -7,6 +7,6 @@ package com.codesquad.kotlincardgame.card
  */
 data class Card(private val suit: Suit, private val rank: Rank) {
     override fun toString(): String {
-        return "${suit.suit} ${rank.rank}"
+        return "${rank.rank}\n${suit.suit}"
     }
 }

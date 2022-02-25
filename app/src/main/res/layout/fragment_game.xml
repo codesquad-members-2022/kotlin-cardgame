@@ -53,26 +53,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Player1"
             android:textColor="@color/black" />
 
         <LinearLayout
+            android:id="@+id/layout_player1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-        </LinearLayout>
+            android:orientation="horizontal" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,26 +73,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Player2"
             android:textColor="@color/black" />
 
         <LinearLayout
+            android:id="@+id/layout_player2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-        </LinearLayout>
+            android:orientation="horizontal" />
     </LinearLayout>
 
     <LinearLayout
@@ -119,26 +93,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Player3"
             android:textColor="@color/black" />
 
         <LinearLayout
+            android:id="@+id/layout_player3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-        </LinearLayout>
+            android:orientation="horizontal" />
     </LinearLayout>
 
     <LinearLayout
@@ -152,25 +113,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="로봇"
             android:textColor="@color/black" />
 
         <LinearLayout
+            android:id="@+id/layout_robot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-
-            <TextView
-                style="@style/TEXTVIEW_CARD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2\n🍏" />
-        </LinearLayout>
+            android:orientation="horizontal" />
     </LinearLayout>
 </LinearLayout>

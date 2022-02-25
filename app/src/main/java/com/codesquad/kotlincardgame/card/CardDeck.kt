@@ -1,6 +1,5 @@
 package com.codesquad.kotlincardgame.card
 
-import com.codesquad.kotlincardgame.card.CardFactory.createCards
 import com.codesquad.kotlincardgame.player.PlayerFactory.PARTICIPANT
 import com.codesquad.kotlincardgame.player.PlayerFactory.ROBOT
 import com.codesquad.kotlincardgame.player.PlayerFactory.ROBOT_CARD_COUNT
@@ -14,19 +13,22 @@ class CardDeck(private var _cards: MutableList<Card> = mutableListOf()) {
         _cards = cards.cards.toMutableList()
     }
 
-    fun reset(): CardDeck = createCards()
+    fun reset(): CardDeck {
+        val cardDeck = CardFactory.createCards()
+        return cardDeck.shuffle()
+    }
 
     fun count(): Int = _cards.size
 
     fun shuffle(): CardDeck {
         for (i in _cards.indices) {
-            val randomIndex = (i.._cards.size).random()
+            val randomIndex = (i until _cards.size).random()
             _cards[i] = _cards[randomIndex].also { _cards[randomIndex] = _cards[i] }
         }
         return CardDeck(_cards)
     }
 
-    fun removeOne(): Card {
+    private fun removeOne(): Card {
         require(_cards.isNotEmpty()) { EMPTY_MESSAGE }
         val randomIndex = (1 until _cards.size).random()
         return _cards.removeAt(randomIndex)
