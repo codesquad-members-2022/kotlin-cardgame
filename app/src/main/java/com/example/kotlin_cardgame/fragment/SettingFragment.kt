@@ -26,8 +26,6 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val bitmap: Bitmap? = this.arguments?.getParcelable("first")
-//        val bitmap = bundle?.getParcelable<Bitmap>("first")
-//        Log.d("test", bundle.toString())
         Log.d("test", bitmap.toString())
         val resource = this.resources
         val drawable = BitmapDrawable(resource, bitmap)

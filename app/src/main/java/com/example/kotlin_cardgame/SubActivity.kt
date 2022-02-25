@@ -81,10 +81,6 @@ class SubActivity : AppCompatActivity() {
                     s
                 }
                 else -> {
-//                    val bitmap = intent.getParcelableExtra<Bitmap>("first")
-
-//                    val bundle = Bundle()
-//                    bundle.putParcelable("first", bitmap)
                     val bundleExtra = intent.getBundleExtra("first")
                     Log.d("test", bundleExtra.toString())
                     val s = SettingFragment()
