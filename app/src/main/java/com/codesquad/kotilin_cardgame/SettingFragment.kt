@@ -23,14 +23,11 @@ class SettingFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        savedInstanceState?.let { onSaveInstanceState(it) }
         val nickNameView = view.findViewById<TextView>(R.id.tv_nickname_card)
         val profileImageView = view.findViewById<ImageView>(R.id.iv_profile_frame_card)
         val helpButton = view.findViewById<Button>(R.id.btn_help_frame)
         val nickname = arguments?.getString("nickname")
         val byteArray = arguments?.getByteArray("image")
-
-
         val bitmap = byteArray?.let {
             BitmapFactory.decodeByteArray(byteArray, 0, it.size)
         }

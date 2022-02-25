@@ -19,7 +19,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frame_sub"
-        android:name="com.codesquad.kotilin_cardgame.GameFragment"
+        android:name="com.codesquad.kotilin_cardgame.StartFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10" />

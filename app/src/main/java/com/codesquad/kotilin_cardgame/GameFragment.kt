@@ -2,6 +2,7 @@ package com.codesquad.kotilin_cardgame
 
 import android.os.Bundle
 import android.view.*
+import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 
 class GameFragment : Fragment() {
@@ -14,18 +15,17 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val gameMode = view.findViewById<RadioGroup>(R.id.radiogroup_cardMode)
+        gameMode.setOnCheckedChangeListener { _, checkMode ->
+            val supportFragmentManager = childFragmentManager
+            val transaction= supportFragmentManager.beginTransaction()
+            when(checkMode){
+                R.id.rbtn_twocards->  transaction.replace(R.id.frame_game, TwoCardGame()).commit()
+                R.id.rbtn_threecards->transaction.replace(R.id.frame_game, ThreeCardGame()).commit()
+                R.id.rbtn_fourcards->transaction.replace(R.id.frame_game, FourCardGame()).commit()
+            }
 
-
-
-//        val gameMode = view.findViewById<RadioGroup>(R.id.radiogroup_cardMode)
-//        gameMode.setOnCheckedChangeListener { _, checkMode ->
-//            when(checkMode){
-//                R.id.rbtn_twocards-> navController.navigate(R.id.action_gameFragment_to_twocard_game)
-//                R.id.rbtn_threecards->navController.navigate(R.id.action_gameFragment_to_threecard_game)
-//                R.id.rbtn_fourcards->navController.navigate(R.id.action_gameFragment_to_fourcard_game)
-//            }
-//
-//        }
+        }
 
     }
 
