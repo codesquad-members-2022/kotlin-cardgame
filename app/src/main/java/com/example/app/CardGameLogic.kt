@@ -54,6 +54,29 @@ interface CardGame {
     fun resetCardDeck()
 }
 
-class CardGameLogicController {
+class UserDeck(val deck: CardDeckFactory.CardDeck) : CardGame {
 
+    override fun getCardCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun shuffleCards() {
+        TODO("Not yet implemented")
+    }
+
+    override fun removeOneCard(): MutableMap<Int, String> {
+        TODO("Not yet implemented")
+    }
+
+    override fun resetCardDeck() {
+        TODO("Not yet implemented")
+    }
+}
+
+class CardGameFactory {
+
+}
+
+class CardGameLogicController {
+    lateinit var gameMode: CardGame
 }
