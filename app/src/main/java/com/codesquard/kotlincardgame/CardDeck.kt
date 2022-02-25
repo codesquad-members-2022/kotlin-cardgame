@@ -2,9 +2,6 @@ package com.codesquard.kotlincardgame
 
 import kotlin.math.floor
 
-fun main() {
-}
-
 interface CardDeck {
     val cardDeck: ArrayList<Card>
     fun count(): Int
@@ -24,10 +21,12 @@ class FruitsCardDeck(vararg card: Card) : CardDeck {
                 initialCardDeck.add(it.clone())
             }
         }
-        cardDeck = initialCardDeck
+        cardDeck = initialCardDeck.clone() as ArrayList<Card>
     }
 
-    override fun count() = cardDeck.size
+    override fun count(): Int {
+        return cardDeck.size
+    }
 
     override fun shuffle() {
         for (i in cardDeck.indices) {
@@ -45,6 +44,6 @@ class FruitsCardDeck(vararg card: Card) : CardDeck {
     }
 
     override fun reset() {
-        cardDeck = initialCardDeck
+        cardDeck = initialCardDeck.clone() as ArrayList<Card>
     }
 }
