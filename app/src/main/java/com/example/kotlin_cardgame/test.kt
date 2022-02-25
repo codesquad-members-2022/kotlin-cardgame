@@ -1,6 +1,6 @@
 import kotlin.random.Random
 
-
+/*
 fun main() {
 
     val fruitDeck = FruitDeck()
@@ -46,6 +46,6 @@ fun main() {
 
     val game  = Game(3, FruitDeck())
     println(game.getUserCardState())
-}
+}*/
 
 

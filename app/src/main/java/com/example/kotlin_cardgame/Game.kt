@@ -1,6 +1,11 @@
 import com.example.kotlin_cardgame.GameModeEnum
+import com.example.kotlin_cardgame.User
 
-class Game(val gameMode: GameModeEnum, val cardDeck: IDeck, private val users: List<User>? = null) {
+class Game(
+    private val gameMode: GameModeEnum,
+    private val cardDeck: IDeck,
+    private val users: List<User>? = null
+) {
 
     private var userList = users ?: getUserList()
     private var robotCardList = mutableListOf<ICard>()
@@ -9,6 +14,24 @@ class Game(val gameMode: GameModeEnum, val cardDeck: IDeck, private val users: L
     init {
         cardDeck.shuffle()
         distributeCard()
+    }
+
+    fun getUsersName(): MutableList<String> {
+        val nameList = mutableListOf<String>()
+        userList.forEach { nameList.add(it.userName.toString()) }
+        return nameList
+    }
+
+    fun getUserCardState(): String {
+        val usersState = StringBuilder()
+        userList.forEach {
+            usersState.append(it.getCardState())
+            usersState.append("\n")
+        }
+
+        usersState.append("computer //")
+        robotCardList.forEach { usersState.append(" $it ") }
+        return usersState.toString()
     }
 
     private fun endGame() {
@@ -35,18 +58,6 @@ class Game(val gameMode: GameModeEnum, val cardDeck: IDeck, private val users: L
             GameModeEnum.TRIPLE -> 3
             GameModeEnum.QUADRUPLE -> 4
         }
-    }
-
-    fun getUserCardState(): String {
-        val usersState = StringBuilder()
-        userList.forEach {
-            usersState.append(it.getCardState())
-            usersState.append("\n")
-        }
-
-        usersState.append("computer //")
-        robotCardList.forEach { usersState.append(" $it ") }
-        return usersState.toString()
     }
 
     private fun getUserList(): List<User> {

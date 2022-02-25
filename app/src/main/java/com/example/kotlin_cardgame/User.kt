@@ -1,5 +1,7 @@
+package com.example.kotlin_cardgame
+
+import ICard
 import java.lang.StringBuilder
-import kotlin.random.Random
 
 class User(var userName: String?) {
 
