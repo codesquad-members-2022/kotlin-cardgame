@@ -1,6 +1,5 @@
 package com.codesquad.kotilin_cardgame
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -10,16 +9,14 @@ class SubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub)
-        val profileImage = intent.getByteArrayExtra("profileImage")?.let {
-            BitmapFactory.decodeByteArray(it, 0, it.size)
-        }
-        val nickname = intent.getStringExtra("nickname")
         val toolbar = findViewById<Toolbar>(R.id.toolbar_cardgame)
-        val settingFragment = SettingFragment()
-        nickname?.let { settingFragment.setNickName(it) }
-        profileImage?.let { settingFragment.setImage(it) }
+        val bundle = Bundle()
+        bundle.putString("nickname",intent.getStringExtra("nickname"))
+        bundle.putByteArray("image", intent.getByteArrayExtra("profileImage"))
         setSupportActionBar(toolbar)
         val gameFragment= GameFragment()
+        val settingFragment = SettingFragment()
+        settingFragment.arguments=bundle
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation_sub)
