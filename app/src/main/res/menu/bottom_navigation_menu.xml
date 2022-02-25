@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/game"
+            android:title="@string/게임"
+            android:enabled="true"
+            android:icon="@drawable/ic_game"/>
+    <item
+            android:id="@+id/setting"
+            android:title="@string/설정"
+            android:enabled="true"
+            android:icon="@drawable/ic_setting"/>
+
+</menu>

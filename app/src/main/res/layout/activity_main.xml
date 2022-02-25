@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nickname_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nickname_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                tools:ignore="SpeakableTextPresentCheck"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+    >
+        <ImageButton
+                android:id="@+id/first_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:src="@drawable/selected_first_btn"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                tools:ignore="SpeakableTextPresentCheck"/>
+        <ImageButton
+                android:id="@+id/second_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/selected_second_btn"
+                android:scaleType="fitCenter"
+                tools:ignore="SpeakableTextPresentCheck"/>
+        <ImageButton
+                android:id="@+id/third_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/selected_third_btn"
+                android:scaleType="fitCenter"
+                tools:ignore="SpeakableTextPresentCheck"/>
+        <ImageButton
+                android:id="@+id/fourth_btn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/selected_fourth_btn"
+                android:scaleType="fitCenter"
+                tools:ignore="SpeakableTextPresentCheck"/>
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/character_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"/>
+
+    <Button
+            android:id="@+id/btn_nextActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="25dp"
+            android:text="@string/다음"
+            android:enabled="false"/>
+
+</LinearLayout>
