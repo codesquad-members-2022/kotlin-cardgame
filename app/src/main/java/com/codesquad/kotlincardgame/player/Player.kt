@@ -10,4 +10,8 @@ abstract class Player {
     fun take(cards: CardDeck) {
         this.cards.replace(cards)
     }
+
+    open fun score(): Int {
+        return cards.sum()
+    }
 }
