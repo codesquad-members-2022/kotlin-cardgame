@@ -11,6 +11,14 @@ class CardValue(intValue:Int){
         else-> intValue.toString()
     }
 
+    fun getValue():Int{
+        return when(this.stringValue){
+            "A"-> 1
+            "X"->10
+            else -> this.stringValue.toInt()
+        }
+    }
+
     override fun toString(): String {
         return "$stringValue"
     }

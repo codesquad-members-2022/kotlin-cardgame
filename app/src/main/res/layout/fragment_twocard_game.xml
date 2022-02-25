@@ -14,6 +14,7 @@
         android:text="Player1"
         android:textColor="@color/black"
         />
+
     <Button
         android:id="@+id/btn_player1_card1"
         android:layout_width="50dp"
@@ -32,8 +33,17 @@
         android:layout_marginStart="10dp"
         android:background="@color/white"
         />
+    <Button
+        android:id="@+id/btn_player1_medal"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_player_one"
+        app:layout_constraintStart_toEndOf="@id/btn_player1_card2"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:text="🏆"
 
-
+        />
     <TextView
         android:id="@+id/tv_player_two"
         android:layout_width="wrap_content"
@@ -62,6 +72,18 @@
         app:layout_constraintStart_toEndOf="@id/btn_player2_card1"
         android:layout_marginStart="10dp"
         android:background="@color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_player2_medal"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_player_two"
+        app:layout_constraintStart_toEndOf="@id/btn_player2_card2"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:text="🏆"
+
         />
 
     <TextView
@@ -93,7 +115,17 @@
         android:layout_marginStart="10dp"
         android:background="@color/white"
         />
+    <Button
+        android:id="@+id/btn_player3_medal"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_player_three"
+        app:layout_constraintStart_toEndOf="@id/btn_player3_card2"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:text="🏆"
 
+        />
     <TextView
         android:id="@+id/tv_player_robot"
         android:layout_width="wrap_content"
@@ -132,5 +164,16 @@
         android:background="@color/white"
         app:layout_constraintStart_toEndOf="@id/btn_robot_card2"
         app:layout_constraintTop_toBottomOf="@id/tv_player_robot" />
+    <Button
+        android:id="@+id/btn_robot_medal"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_player_robot"
+        app:layout_constraintStart_toEndOf="@id/btn_robot_card3"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:text="🏆"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

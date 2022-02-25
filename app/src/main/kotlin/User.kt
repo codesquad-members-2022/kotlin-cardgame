@@ -16,5 +16,13 @@ class User(cardNum:Int) {
             .map { allowedChars.random() }
             .joinToString("")
     }
+
+    fun getCardValueSum():Int{
+        var sum=0
+        userDeck.cardDeck.map{
+            sum+= it.getValue()
+        }
+        return sum
+    }
 }
 

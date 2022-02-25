@@ -16,7 +16,6 @@ class FourCardGame : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fourcard_game, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,16 +36,16 @@ class FourCardGame : Fragment() {
         fourCardGame.giveOutCard()
         view.findViewById<Button>(R.id.btn_player1_card1).text= playerOne.userDeck.cardDeck[0].toString()
         view.findViewById<Button>(R.id.btn_player1_card2).text= playerOne.userDeck.cardDeck[1].toString()
-        view.findViewById<Button>(R.id.btn_player1_card2).text= playerOne.userDeck.cardDeck[2].toString()
-        view.findViewById<Button>(R.id.btn_player1_card2).text= playerOne.userDeck.cardDeck[3].toString()
+        view.findViewById<Button>(R.id.btn_player1_card3).text= playerOne.userDeck.cardDeck[2].toString()
+        view.findViewById<Button>(R.id.btn_player1_card4).text= playerOne.userDeck.cardDeck[3].toString()
         view.findViewById<Button>(R.id.btn_player2_card1).text= playerTwo.userDeck.cardDeck[0].toString()
         view.findViewById<Button>(R.id.btn_player2_card2).text= playerTwo.userDeck.cardDeck[1].toString()
-        view.findViewById<Button>(R.id.btn_player2_card2).text= playerTwo.userDeck.cardDeck[2].toString()
-        view.findViewById<Button>(R.id.btn_player2_card2).text= playerTwo.userDeck.cardDeck[3].toString()
+        view.findViewById<Button>(R.id.btn_player2_card3).text= playerTwo.userDeck.cardDeck[2].toString()
+        view.findViewById<Button>(R.id.btn_player2_card4).text= playerTwo.userDeck.cardDeck[3].toString()
         view.findViewById<Button>(R.id.btn_player3_card1).text= playerThree.userDeck.cardDeck[0].toString()
         view.findViewById<Button>(R.id.btn_player3_card2).text= playerThree.userDeck.cardDeck[1].toString()
-        view.findViewById<Button>(R.id.btn_player3_card2).text= playerThree.userDeck.cardDeck[2].toString()
-        view.findViewById<Button>(R.id.btn_player3_card2).text= playerThree.userDeck.cardDeck[3].toString()
+        view.findViewById<Button>(R.id.btn_player3_card3).text= playerThree.userDeck.cardDeck[2].toString()
+        view.findViewById<Button>(R.id.btn_player3_card4).text= playerThree.userDeck.cardDeck[3].toString()
         view.findViewById<Button>(R.id.btn_robot_card1).text= playerRobot.userDeck.cardDeck[0].toString()
         view.findViewById<Button>(R.id.btn_robot_card2).text= playerRobot.userDeck.cardDeck[1].toString()
         view.findViewById<Button>(R.id.btn_robot_card3).text= playerRobot.userDeck.cardDeck[2].toString()

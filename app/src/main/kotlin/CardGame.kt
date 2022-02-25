@@ -1,6 +1,6 @@
 class CardGame(val drawNum:Int, val cardDeck: CardDeck) {
 
-    val userList:Array<User> = Array(3){User(0)}
+    val userList:Array<User> = Array(3){User(drawNum)}
     val robot = User(3)
     init {
         while(!checkUserName(userList)) {
@@ -21,6 +21,52 @@ class CardGame(val drawNum:Int, val cardDeck: CardDeck) {
         }
         return cardDeck.count()
     }
+
+    fun checkWinner():User?{
+        val hasMaxScoreUserList = ArrayList<User>()
+        val maxScore= getMaxScore()
+        userList.map{
+            if(it.getCardValueSum()==maxScore){
+                hasMaxScoreUserList.add(it)
+            }
+        }
+
+        return if(hasMaxScoreUserList.size>1){
+            null
+        } else{
+            hasMaxScoreUserList[0]
+        }
+
+    }
+
+    fun getWinnerInfo( ):String {
+        val winner: User? = this.checkWinner()
+        winner?.let {
+            return when (this.userList.indexOf(winner)) {
+                0 -> "PlayerOne"
+                1-> "PlayerTwo"
+                2-> "PlayerThree"
+                else-> "PlayerRobot"
+            }
+        }
+        return "No Winner"
+
+    }
+
+
+    fun getMaxScore():Int{
+        var max =0
+        userList.map{
+            if(max<it.getCardValueSum()){
+                max= it.getCardValueSum()
+            }
+        }
+        if(max<robot.getCardValueSum()){
+            max= robot.getCardValueSum()
+        }
+        return max
+    }
+
 
     fun checkUserGetDrawCard():Boolean{
         return userList.all{it.userDeck.count()==drawNum}

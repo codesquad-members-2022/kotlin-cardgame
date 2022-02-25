@@ -9,6 +9,10 @@ class Card(fruit:FruitShape, cardValue:Int) {
     private val cardValue = CardValue(cardValue)
     private val cardShape = fruit.fruitShape
 
+    fun getValue():Int{
+        return this.cardValue.getValue()
+    }
+
     override fun toString(): String {
         return "${this.cardShape} $cardValue"
     }
