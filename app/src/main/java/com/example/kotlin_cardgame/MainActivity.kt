@@ -1,10 +1,11 @@
 package com.example.kotlin_cardgame
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_cardgame.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val resources = this.resources
 
         // editText 를 이용한 닉네임 정규식
         binding.textInputLayout.editText?.addTextChangedListener(listener)
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton3.isSelected = false
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_24)
+                val secondImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_satisfied_24)
             } else {
                 binding.imageButton2.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -53,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton2.isSelected = false
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_very_dissatisfied_24)
+                val thirdImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_very_dissatisfied_24)
             } else {
                 binding.imageButton3.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -65,6 +70,7 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton2.isSelected = false
                 binding.imageButton3.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_very_satisfied_24)
+                val fourthImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_very_satisfied_24)
             } else {
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -73,6 +79,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             val intent = Intent(this, SubActivity::class.java)
+            if (binding.imageButton1.isSelected) {
+                val bundle = Bundle()
+                val firstImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_satisfied_alt_24)
+
+                bundle.putParcelable("first", firstImageBitmap)
+                intent.putExtra("first", bundle)
+            }
             startActivity(intent)
         }
     }
