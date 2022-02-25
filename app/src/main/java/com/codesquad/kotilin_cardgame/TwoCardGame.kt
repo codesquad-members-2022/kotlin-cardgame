@@ -51,7 +51,40 @@ class TwoCardGame : Fragment() {
         giveOutTwoCard(playerTwo, playerTwoNameView, playerTwoFirstCard,playerTwoSecondCard)
         giveOutTwoCard(playerThree, playerThreeNameView, playerThreeFirstCard, playerThreeSecondCard)
         giveOutCardRobot(playerRobot, playerRobotNameView, playerRobotFirstCard, playerRobotSecondCard, playerRobotThirdCard)
-       
+        val winnerInfo=  twoCardGame.getWinnerInfo()
+        when(winnerInfo) {
+            "PlayerOne" -> {
+                playerOneMedal.isVisible=true
+                playerTwoMedal.isVisible=false
+                playerThreeMedal.isVisible=false
+                playerRobotMedal.isVisible= false
+            }
+            "PlayerTwo" -> {
+                playerOneMedal.isVisible=false
+                playerTwoMedal.isVisible=true
+                playerThreeMedal.isVisible=false
+                playerRobotMedal.isVisible= false
+            }
+            "PlayerThree"-> {
+                playerOneMedal.isVisible=false
+                playerTwoMedal.isVisible=false
+                playerThreeMedal.isVisible=true
+                playerRobotMedal.isVisible= false
+            }
+            "PlayerRobot"->{
+                playerOneMedal.isVisible=false
+                playerTwoMedal.isVisible=false
+                playerThreeMedal.isVisible=false
+                playerRobotMedal.isVisible= true
+            }
+            else->{
+                playerOneMedal.isVisible=false
+                playerTwoMedal.isVisible=false
+                playerThreeMedal.isVisible=false
+                playerRobotMedal.isVisible= false
+            }
+        }
+
     }
 
     fun giveOutTwoCard(
