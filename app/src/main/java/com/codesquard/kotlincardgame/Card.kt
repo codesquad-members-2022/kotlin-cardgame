@@ -1,18 +1,5 @@
 package com.codesquard.kotlincardgame
 
-fun main() {
-    val a: Card = AppleCard(1)
-    val b: Card = OrangeCard(2)
-    val c: Card = CherryCard(9)
-    val d: Card = GrapeCard(10)
-    val e: Card = GrapeCard(11)
-    a.printCardInfo()
-    b.printCardInfo()
-    c.printCardInfo()
-    d.printCardInfo()
-    e.printCardInfo()
-}
-
 /*
 숫자의 데이터 구조 : 싱글턴을 활용하여 Array<String>를 사용함
 1. 싱글턴을 사용한 이유
@@ -36,39 +23,70 @@ object CardNumber {
     - 이후에 추가 요구 사항으로 다른 모양의 카드가 추가되더라도 Card를 상속받은 클래스만 추가하면 다른 클래스 및 코드를 수정할 필요없도록 하기 위해. (추상타입활용)
 2. 인터페이스를 사용한 이유
     - 프로퍼티 중 image만 모양에 따라 달라지면 되고, 나머지 속성인 number(카드숫자)는 동일하기 때문에 재사용성을 위해 상속을 활용함
-    - 커스텀 접근자를 통해 카드 숫자는 입력된 inputNumber에 따라 생성할 때마다 다르게 할당되도록 함
+    - ~~커스텀 접근자를 통해 카드 숫자는 입력된 inputNumber에 따라 생성할 때마다 다르게 할당되도록 함~~
+    - 커스텀 접근자에 대해 잘못 이해하고 있었음. 추가 미션을 위해 데이터 구조를 변경함
 3. Image가 String 타입인 이유
     - 유니코드의 자바코드를 활용했고 이 자바코드가 String 타입이기 때문에
  */
 interface Card {
-    val inputNumber: Int
     val image: String
-    val number: String
-        get() {
-            return if (inputNumber <= CardNumber.numberArray.size)
-                CardNumber.numberArray[inputNumber - 1]
-            else "0"
-        }
+    var number: String
 
     fun printCardInfo() {
         println(image + number)
     }
+
+    fun setNumber(count: Int) {
+        if (count >= 0 && count <= CardNumber.numberArray.size) {
+            number = CardNumber.numberArray[count]
+        }
+    }
+
+    fun clone() : Card
 }
 
-class AppleCard(override val inputNumber: Int) : Card {
+class AppleCard : Card {
     override val image = "\uD83C\uDF4E"
+    override var number: String = "0"
+
+    override fun clone(): Card {
+        val copiedNumberCard: Card = AppleCard()
+        copiedNumberCard.number = this.number
+        return copiedNumberCard
+    }
 }
 
-class OrangeCard(override val inputNumber: Int) : Card {
+class OrangeCard : Card {
     override val image = "\uD83C\uDF4A"
+    override var number: String = "0"
+
+    override fun clone(): Card {
+        val copiedNumberCard: Card = OrangeCard()
+        copiedNumberCard.number = this.number
+        return copiedNumberCard
+    }
 }
 
-class CherryCard(override val inputNumber: Int) : Card {
+class CherryCard : Card {
     override val image = "\uD83C\uDF52"
+    override var number: String = "0"
+
+    override fun clone(): Card {
+        val copiedNumberCard: Card = CherryCard()
+        copiedNumberCard.number = this.number
+        return copiedNumberCard
+    }
 }
 
-class GrapeCard(override val inputNumber: Int) : Card {
+class GrapeCard : Card {
     override val image = "\uD83C\uDF47"
+    override var number: String = "0"
+
+    override fun clone(): Card {
+        val copiedNumberCard: Card = GrapeCard()
+        copiedNumberCard.number = this.number
+        return copiedNumberCard
+    }
 }
 
 
