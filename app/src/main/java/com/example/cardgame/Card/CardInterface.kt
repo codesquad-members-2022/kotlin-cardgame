@@ -1,4 +1,4 @@
-package com.example.cardgame
+package com.example.cardgame.Card
 
 interface CardInterface {
     fun count() : Int

@@ -1,4 +1,4 @@
-package com.example.cardgame
+package com.example.cardgame.Card
 
 enum class Number {
     X,

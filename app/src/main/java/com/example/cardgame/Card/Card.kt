@@ -1,4 +1,4 @@
-package com.example.cardgame
+package com.example.cardgame.Card
 
 class Card(private var cardCount: Int) : CardInterface {
 
