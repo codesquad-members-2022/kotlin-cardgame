@@ -1,8 +1,9 @@
 package com.codesquard.kotlincardgame
 
+import kotlin.math.floor
+
 fun main() {
 }
-
 
 interface CardDeck {
     val cardDeck: ArrayList<Card>
@@ -29,7 +30,12 @@ class FruitsCardDeck(vararg card: Card) : CardDeck {
     override fun count() = cardDeck.size
 
     override fun shuffle() {
-
+        for (i in cardDeck.indices) {
+            val random = floor(Math.random() * (i + 1)).toInt()
+            val tem = cardDeck[i]
+            cardDeck[i] = cardDeck[random]
+            cardDeck[random] = tem
+        }
     }
 
     override fun removeOne(): Card {
