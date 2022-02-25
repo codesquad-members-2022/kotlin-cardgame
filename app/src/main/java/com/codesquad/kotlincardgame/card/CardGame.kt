@@ -29,6 +29,15 @@ class CardGame(
         return players
     }
 
+    fun maxScore(players: List<Player>): Int {
+        var maxScore = 0
+        for (i in 0 until players.size - 1) {
+            val score = players[i].score()
+            maxScore = maxScore.coerceAtLeast(score)
+        }
+        return maxScore
+    }
+
     companion object {
         private const val NOT_ENOUGH_CARD = "카드가 충분하지 않습니다."
     }

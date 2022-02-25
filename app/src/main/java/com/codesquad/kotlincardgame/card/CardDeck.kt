@@ -20,6 +20,18 @@ class CardDeck(private var _cards: MutableList<Card> = mutableListOf()) {
 
     fun count(): Int = _cards.size
 
+    fun sum(): Int {
+        var sum = 0
+        _cards.forEachIndexed { index, card ->
+            when (card.rank.rank) {
+                "A" -> sum += 1
+                "X" -> sum += 10
+                else -> sum += card.rank.rank.toInt()
+            }
+        }
+        return sum
+    }
+
     fun shuffle(): CardDeck {
         for (i in _cards.indices) {
             val randomIndex = (i until _cards.size).random()

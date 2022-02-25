@@ -2,6 +2,7 @@ package com.codesquad.kotlincardgame
 
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.ToggleButton
@@ -51,7 +52,7 @@ class GameFragment : Fragment() {
                 cardGame = CardGame(2)
                 toggleButtonCard3.isChecked = false
                 toggleButtonCard4.isChecked = false
-                reset()
+                updateBoard()
             } else {
                 removeView(player1, player2, player3, robot)
                 removeName(player1Name, player2Name, player3Name, robotName)
@@ -63,7 +64,7 @@ class GameFragment : Fragment() {
                 cardGame = CardGame(3)
                 toggleButtonCard2.isChecked = false
                 toggleButtonCard4.isChecked = false
-                reset()
+                updateBoard()
             } else {
                 removeView(player1, player2, player3, robot)
                 removeName(player1Name, player2Name, player3Name, robotName)
@@ -75,7 +76,7 @@ class GameFragment : Fragment() {
                 cardGame = CardGame(4)
                 toggleButtonCard2.isChecked = false
                 toggleButtonCard3.isChecked = false
-                reset()
+                updateBoard()
             } else {
                 removeView(player1, player2, player3, robot)
                 removeName(player1Name, player2Name, player3Name, robotName)
@@ -83,14 +84,15 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun reset() {
+    private fun updateBoard() {
         val players = cardGame.players()
+        val maxScore = cardGame.maxScore(players)
         removeView(player1, player2, player3, robot)
         removeName(player1Name, player2Name, player3Name, robotName)
-        addCards(players[0], player1, player1Name, cardGame.mode)
-        addCards(players[1], player2, player2Name, cardGame.mode)
-        addCards(players[2], player3, player3Name, cardGame.mode)
-        addCards(players[3], robot, robotName, 3)
+        addCards(players[0], player1, player1Name, cardGame.mode, maxScore)
+        addCards(players[1], player2, player2Name, cardGame.mode, maxScore)
+        addCards(players[2], player3, player3Name, cardGame.mode, maxScore)
+        addCards(players[3], robot, robotName, 3, maxScore)
     }
 
     private fun removeName(
@@ -121,10 +123,12 @@ class GameFragment : Fragment() {
         player: Player,
         playerLayout: LinearLayout,
         playerName: TextView,
-        numberOfCard: Int
+        numberOfCard: Int,
+        maxScore: Int
     ) {
         val dp15 = (resources.displayMetrics.density * 15).roundToInt()
         val dp10 = (resources.displayMetrics.density * 10).roundToInt()
+        val dp40 = (resources.displayMetrics.density * 40).roundToInt()
         playerName.text = player.name.name
         repeat(numberOfCard) {
             val textView = TextView(activity)
@@ -140,6 +144,14 @@ class GameFragment : Fragment() {
             textView.layoutParams = layoutParams
             playerLayout.addView(textView)
         }
+        if (maxScore == player.cards.sum() && player.name.name != "로봇") {
+            val imageView = ImageView(activity)
+            val layoutParams = LinearLayout.LayoutParams(dp40, dp40)
+            layoutParams.topMargin = dp10
+            imageView.setBackgroundResource(R.drawable.ic_medal_1369)
+            imageView.layoutParams = layoutParams
+            playerLayout.addView(imageView)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -150,7 +162,7 @@ class GameFragment : Fragment() {
         return when (item.itemId) {
             R.id.action_bar_refresh -> {
                 cardGame.reset()
-                reset()
+                updateBoard()
                 true
             }
             else -> super.onOptionsItemSelected(item)
