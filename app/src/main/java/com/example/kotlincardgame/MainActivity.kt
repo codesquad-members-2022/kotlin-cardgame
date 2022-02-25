@@ -8,8 +8,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 
-
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Logger.addLogAdapter(AndroidLogAdapter())
         super.onCreate(savedInstanceState)
@@ -20,4 +20,5 @@ class MainActivity : AppCompatActivity() {
         }
         Logger.d("onCreate")
     }
+
 }

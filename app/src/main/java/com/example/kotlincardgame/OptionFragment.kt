@@ -30,9 +30,11 @@ class OptionFragment : BaseFragment<FragmentOptionBinding>(FragmentOptionBinding
                 context.packageName
             )
         }
+        
         binding.help.setOnClickListener {
             val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://codesquad.kr/"))
             startActivity(urlIntent)
         }
+        
     }
 }

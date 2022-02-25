@@ -18,7 +18,6 @@
 ## 결과
 ![결과](https://user-images.githubusercontent.com/79190824/155176273-adad454b-8047-4aad-b51d-d272aad6e411.gif)
 
-
 ## 카드 클래스 구현하기
 - [x] 객체를 설계
 
