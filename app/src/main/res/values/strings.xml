@@ -8,4 +8,7 @@
     <string name="description_game_information">description_game_information</string>
     <string name="label_game_icon">게임</string>
     <string name="label_setting_icon">설정</string>
+    <string name="toggleButton_2cards">2 Cards</string>
+    <string name="toggleButton_3cards">3 Cards</string>
+    <string name="toggleButton_4cards">4 Cards</string>
 </resources>
