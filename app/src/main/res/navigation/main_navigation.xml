@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/secondActivityFragment">
+
+    <activity
+        android:id="@+id/secondActivityFragment"
+        android:name="com.example.app.SecondActivityFragment"
+        android:label="SecondActivityFragment" />
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.app.GameFragment"
+        android:label="GameFragment" />
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.app.SettingFragment"
+        android:label="SettingFragment" />
+</navigation>
