@@ -1,4 +1,4 @@
-package com.example.kotlin_cardgame.data
+package com.example.kotlin_cardgame.card
 
 import com.example.kotlin_cardgame.exception.InvalidCardNumberException
 
