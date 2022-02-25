@@ -5,4 +5,5 @@ interface CardInterface {
     fun shuffle()
     fun removeOne() :String
     fun reset()
+    fun returnScore() : Int
 }
