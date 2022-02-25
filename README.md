@@ -25,7 +25,8 @@
 
 - Game 클래스는 User 클래스를 의존합니다. 이때 User 클래스의 변화 혹은 확장 가능성이 적다고 판단하여 콘크리트 클래스로 의존
 - Game 과 User 는 각각 IDeck 과 ICard 에 의존하여 확장에 열린 상태로 설계함
-- GameMode 는 한자리 수 숫자이고 int 값 이 그 의미를 더 잘 전달한다고 판단하여 enum 클래스 제작 X
+- Game 의 인자인 gameMode 는 int 값이 아닌 GameModeEnum 클래스로 변경
+    - int 로 제작시 잘못된 데이터의 입력이 있을 수 있음 - 명세서 2,3,4 로 input 이 제한되어있음을 참고
 
 # 추가 학습내용
 
