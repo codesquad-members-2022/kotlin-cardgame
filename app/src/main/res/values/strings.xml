@@ -6,4 +6,10 @@
     <string name="btn4Description">버튼4</string>
     <string name="nicknameDescription">닉네임 입력</string>
     <string name="btnNextString">다음</string>
+    <string name="_2_cards">2 Cards</string>
+    <string name="_3_cards">3 Cards</string>
+    <string name="_4_cards">4 Cards</string>
+    <string name="player_1">Player 1</string>
+    <string name="player2">player2</string>
+    <string name="player3">player3</string>
 </resources>
