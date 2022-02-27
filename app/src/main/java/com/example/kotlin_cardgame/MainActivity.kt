@@ -1,7 +1,6 @@
 package com.example.kotlin_cardgame
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,8 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        val resources = this.resources
 
         // editText 를 이용한 닉네임 정규식
         binding.textInputLayout.editText?.addTextChangedListener(listener)
@@ -44,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton3.isSelected = false
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_satisfied_24)
-                val secondImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_satisfied_24)
             } else {
                 binding.imageButton2.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -57,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton2.isSelected = false
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_very_dissatisfied_24)
-                val thirdImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_very_dissatisfied_24)
             } else {
                 binding.imageButton3.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -70,7 +65,6 @@ class MainActivity : AppCompatActivity() {
                 binding.imageButton2.isSelected = false
                 binding.imageButton3.isSelected = false
                 binding.imageView.setImageResource(R.drawable.ic_baseline_sentiment_very_satisfied_24)
-                val fourthImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_very_satisfied_24)
             } else {
                 binding.imageButton4.isSelected = false
                 binding.imageView.setImageResource(0)
@@ -79,12 +73,30 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             val intent = Intent(this, SubActivity::class.java)
-            if (binding.imageButton1.isSelected) {
-                val bundle = Bundle()
-                val firstImageBitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_baseline_sentiment_satisfied_alt_24)
-
-                bundle.putParcelable("first", firstImageBitmap)
-                intent.putExtra("first", bundle)
+            val bundle = Bundle()
+            when {
+                binding.imageButton1.isSelected -> {
+                    bundle.putInt("firstBundle", R.drawable.ic_baseline_sentiment_satisfied_alt_24)
+                    intent.putExtra("firstIntent", bundle)
+                }
+                binding.imageButton2.isSelected -> {
+                    bundle.putInt("secondBundle", R.drawable.ic_baseline_sentiment_satisfied_24)
+                    intent.putExtra("secondIntent", bundle)
+                }
+                binding.imageButton3.isSelected -> {
+                    bundle.putInt(
+                        "thirdBundle",
+                        R.drawable.ic_baseline_sentiment_very_dissatisfied_24
+                    )
+                    intent.putExtra("thirdIntent", bundle)
+                }
+                binding.imageButton3.isSelected -> {
+                    bundle.putInt(
+                        "fourthBundle",
+                        R.drawable.ic_baseline_sentiment_very_satisfied_24
+                    )
+                    intent.putExtra("fourthIntent", bundle)
+                }
             }
             startActivity(intent)
         }
@@ -102,20 +114,16 @@ class MainActivity : AppCompatActivity() {
                 if (s.isEmpty()) {
                     binding.textInputLayout.error = "닉네임을 입력하세요."
                     binding.button.isEnabled = false
-                }
-                else if (s.length > 5) {
+                } else if (s.length > 5) {
                     binding.textInputLayout.error = "닉네임은 5글자 아래로 작성하세요."
                     binding.button.isEnabled = false
-                }
-                else if (hasSpecialCharacter(s.toString())) {
+                } else if (hasSpecialCharacter(s.toString())) {
                     binding.textInputLayout.error = "특수문자를 포함할 수 없습니다."
                     binding.button.isEnabled = false
-                }
-                else if (!hasAlphabet(s.toString()) && s.isNotEmpty()) {
+                } else if (!hasAlphabet(s.toString()) && s.isNotEmpty()) {
                     binding.textInputLayout.error = "영문자를 최소 한 개 포함해야 합니다. "
                     binding.button.isEnabled = false
-                }
-                else {
+                } else {
                     binding.textInputLayout.error = null
                     binding.button.isEnabled = true
                 }

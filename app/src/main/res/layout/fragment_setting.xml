@@ -11,11 +11,11 @@
         android:id="@+id/setting_fragment_imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:contentDescription="@string/fragment_image_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/fragment_image_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:layout_width="wrap_content"

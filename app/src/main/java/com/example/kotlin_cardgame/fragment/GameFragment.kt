@@ -1,6 +1,7 @@
 package com.example.kotlin_cardgame.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val bundle = this.arguments?.getString("test")
+        Log.d("test3", bundle.toString())
         val text = view.findViewById<TextView>(R.id.text)
         text.text = bundle
     }

@@ -35,7 +35,7 @@ class SubActivity : AppCompatActivity() {
         val black = getColor(R.color.black)
         val tabIcons = getDrawable(R.drawable.ic_baseline_notifications_24)
 
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             @RequiresApi(Build.VERSION_CODES.Q) // minSdkVersion 이 지정한 버전보다 낮을 경우 바로 호출시에는 컴파일 에러 발생 (setColorFilter 메소드가 deprecated 되면서 필요)
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.icon?.colorFilter = BlendModeColorFilter(white, BlendMode.SRC_IN)
@@ -73,24 +73,33 @@ class SubActivity : AppCompatActivity() {
             return when (position) {
                 0 -> {
                     val bundle = Bundle()
-                    bundle.putString("test", "test")
-
-                    val s = GameFragment()
-                    s.arguments = bundle
-
-                    s
+                    bundle.putString("test", "textView")
+                    Log.d("test1", bundle.toString())
+                    val gameFragment = GameFragment()
+                    gameFragment.arguments = bundle
+                    gameFragment
                 }
                 else -> {
-//                    val bitmap = intent.getParcelableExtra<Bitmap>("first")
-
-//                    val bundle = Bundle()
-//                    bundle.putParcelable("first", bitmap)
-                    val bundleExtra = intent.getBundleExtra("first")
-                    Log.d("test", bundleExtra.toString())
-                    val s = SettingFragment()
-                    s.arguments = bundleExtra
-
-                    s
+                    val settingFragment = SettingFragment()
+                    when {
+                        intent.hasExtra("firstIntent") -> {
+                            val bundle = intent.getBundleExtra("firstIntent")
+                            settingFragment.arguments = bundle
+                        }
+                        intent.hasExtra("secondIntent") -> {
+                            val bundle = intent.getBundleExtra("secondIntent")
+                            settingFragment.arguments = bundle
+                        }
+                        intent.hasExtra("thirdIntent") -> {
+                            val bundle = intent.getBundleExtra("thirdIntent")
+                            settingFragment.arguments = bundle
+                        }
+                        intent.hasExtra("fourthIntent") -> {
+                            val bundle = intent.getBundleExtra("fourthIntent")
+                            settingFragment.arguments = bundle
+                        }
+                    }
+                    settingFragment
                 }
             }
         }
